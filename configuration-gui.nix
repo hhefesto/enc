@@ -35,6 +35,7 @@ in
 
   environment.systemPackages = with pkgs; [
     myterm
+    (import ./chatgpt-desktop.nix { inherit pkgs; })
     localsend
     insomnia
     brightnessctl
