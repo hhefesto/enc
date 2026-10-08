@@ -1425,26 +1425,9 @@
         "nixpkgs": "nixpkgs_9",
         "opencode": "opencode",
         "refl": "refl",
-        "spacemacs": "spacemacs",
         "telomare": "telomare",
         "wedding-page": "wedding-page",
         "xpsoasis": "xpsoasis"
-      }
-    },
-    "spacemacs": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1791139953,
-        "narHash": "sha256-hwe65AF0RoKmdcgRDdhtbKlxKMidAMcJWE2haNhlJLU=",
-        "owner": "syl20bnr",
-        "repo": "spacemacs",
-        "rev": "fa6525155d6c4732c438cbe0a1f2c37bd5eb2eb2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "syl20bnr",
-        "repo": "spacemacs",
-        "type": "github"
       }
     },
     "systems": {

@@ -563,7 +563,9 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  )
+  ;; ~/.spacemacs is a symlink into etc-nixos-configuration: open it there
+  ;; without asking.
+  (setq vc-follow-symlinks t))
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
@@ -608,7 +610,7 @@ before packages are loaded."
   ;;                   (cons '("\\.hs\\'" . haskell-mode)
   ;;                         (assq-delete-all "\\.hs\\'" auto-mode-alist)))))
 
-  (load "@TELOMARE_MODE_SPACEMACS@")
+  (load "~/.local/share/telomare/emacs-telomare-mode/telomare-mode-spacemacs.el" t)
 
   (defun my/maybe-activate-agda-mode ()
     "Activate agda2-mode for Agda files using the project's direnv environment.

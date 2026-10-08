@@ -1,9 +1,9 @@
-{ config, pkgs, lib, spacemacs, telomare, xmobarrc, ... }:
+{ config, osConfig, pkgs, lib, telomare, xmobarrc, ... }:
 let
-  spacemacsConfig = pkgs.writeText "spacemacs" (builtins.replaceStrings
-    [ ''(load "@TELOMARE_MODE_SPACEMACS@")'' ]
-    [ ''(load "${telomare}/emacs-telomare-mode/telomare-mode-spacemacs.el")'' ]
-    (builtins.readFile ./spacemacs));
+  # This checkout. ~/.spacemacs points into it and the spacemacs activation
+  # commits to it, so it must live here on every host.
+  repo = "${config.home.homeDirectory}/src/etc-nixos-configuration";
+  spacemacsRev = lib.fileContents ./spacemacs.rev;
 in
 {
   home = {
@@ -14,8 +14,7 @@ in
   home.activation = {
     # ~/.claude/settings.json is a real file that Claude Code rewrites itself,
     # so it must not become a /nix/store symlink. Merge in just the two hook
-    # entries and leave everything else untouched -- the same seed-a-mutable-
-    # file idiom as installSpacemacs below. Idempotent across rebuilds.
+    # entries and leave everything else untouched. Idempotent across rebuilds.
     #
     # The hooks call llm-transcript by name rather than by store path: hooks
     # inherit the user's PATH, and ~/.claude is not a GC root, so a pinned
@@ -37,17 +36,52 @@ in
       fi
     '';
 
-    installSpacemacs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      install -Dm644 ${spacemacsConfig} "$HOME/.spacemacs"
+    # Spacemacs runs as it would on any distro: ~/.emacs.d is a git checkout
+    # of develop that I and Spacemacs update, ELPA packages are Spacemacs'
+    # own, and ~/.spacemacs is ./spacemacs (home.file below). Nix only clones
+    # the checkout when it is missing (a new machine, at ./spacemacs.rev), and
+    # on every switch commits what the live state has moved to. Failures warn
+    # and never fail the switch.
+    spacemacs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      git=${pkgs.git}/bin/git
+      emacsd="$HOME/.emacs.d"
+      repo=${repo}
 
-      if [ ! -d "$HOME/.emacs.d" ]; then
-        cp -r ${spacemacs} "$HOME/.emacs.d"
-      else
-        cp -r ${spacemacs}/. "$HOME/.emacs.d/"
+      if ! { [ -e "$emacsd/.git" ] && $git -C "$emacsd" rev-parse -q --verify HEAD >/dev/null; }; then
+        mkdir -p "$emacsd"
+        $git -C "$emacsd" init -q
+        $git -C "$emacsd" remote add origin https://github.com/syl20bnr/spacemacs.git 2>/dev/null || true
+        if $git -C "$emacsd" fetch -q origin develop \
+           && $git -C "$emacsd" checkout -q -f -B develop ${spacemacsRev} \
+           && $git -C "$emacsd" branch -q -u origin/develop; then
+          rm -f "$emacsd/.nix-spacemacs-src"
+        else
+          echo "spacemacs: could not check out Spacemacs into $emacsd; the next switch retries" >&2
+        fi
       fi
 
-      chmod -R u+w "$HOME/.emacs.d/"
-      printf '%s\n' ${spacemacs} > "$HOME/.emacs.d/.nix-spacemacs-src"
+      if [ -d "$repo/.git" ] && head=$($git -C "$emacsd" rev-parse -q --verify HEAD); then
+        # The recorded core only moves forward: a host that is behind (or
+        # has not fetched what another host recorded) leaves it alone.
+        old=$(cat "$repo/spacemacs.rev" 2>/dev/null || true)
+        if [ "$head" != "$old" ]; then
+          if $git -C "$emacsd" merge-base --is-ancestor "$old" "$head" 2>/dev/null; then
+            echo "$head" > "$repo/spacemacs.rev"
+          else
+            echo "spacemacs: $emacsd is at ''${head:0:7}, not ahead of spacemacs.rev ''${old:0:7}; not recording it" >&2
+          fi
+        fi
+
+        what=""
+        $git -C "$repo" diff --quiet HEAD -- spacemacs || what="dotfile"
+        $git -C "$repo" diff --quiet HEAD -- spacemacs.rev \
+          || what="''${what:+$what, }core ''${old:0:7}..''${head:0:7}"
+        if [ -n "$what" ]; then
+          $git -C "$repo" commit -q -m "spacemacs: $what (${osConfig.networking.hostName})" \
+               -- spacemacs spacemacs.rev \
+            || echo "spacemacs: could not auto-commit; commit spacemacs and spacemacs.rev by hand" >&2
+        fi
+      fi
     '';
   };
 
@@ -57,18 +91,13 @@ in
   # home.sessionPath = [ "$HOME/.emacs.d/bin"
   #                    ];
 
-  programs.emacs = {
-    enable = true;
-    extraPackages = epkgs: [
-      epkgs.spinner
-      epkgs.paradox
-      epkgs.lsp-mode
-      epkgs.lsp-ui
-      epkgs.lsp-treemacs
-      epkgs.helm-lsp
-      epkgs.origami
-    ];
-  };
+  # The bare binary: Spacemacs installs every elisp package itself.
+  programs.emacs.enable = true;
+
+  home.file.".spacemacs".source =
+    config.lib.file.mkOutOfStoreSymlink "${repo}/spacemacs";
+  # The whole source tree, so telomare-mode-spacemacs.el finds its flake.nix.
+  home.file.".local/share/telomare".source = telomare;
 
   programs.direnv = {
     enable = true;

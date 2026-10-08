@@ -25,7 +25,7 @@ Primary languages: **Nix, Haskell, Agda**. Strongly prefers functional, type-dri
 | `olimpo.nix` / `delfos.nix` / `xty.nix` + `hardware-configuration-*.nix` | Per-host. olimpo↔delfos share LAN ssh-ng binary caches; delfos has dynamic timezone; xty is the headless production server (62.238.6.4, fail2ban, keys-only SSH). |
 | `secrets/` | agenix: `secrets.nix` recipients + `user-password.age` (rotate: `secrets/rotate-user-password.sh`). |
 | `xmonad.hs`, `xmobarrc-olimpo`, `xmobarrc-delfos` | xmonad config; `@xmonadShortenLength@` substituted per host. `myTerminal = "myterm"` (tmux wrapper from `configuration-gui.nix`). |
-| `spacemacs/`, `doom.d/` | Emacs configs. |
+| `spacemacs`, `spacemacs.rev` | `~/.spacemacs` (symlinked here, edited live from Emacs) and the recorded Spacemacs core commit. See "Spacemacs setup". `doom.d/` is an old Doom config. |
 
 **Navigation:** `flake.nix` → `mkHost` → per-host module lists (workstations: `configuration.nix` + gui + projects desktop-profile; xty: core + projects production-profile).
 
@@ -48,7 +48,7 @@ Deploy: `nix run .#deploy-xty` (docxty backup health check → pure checks → l
 
 ### Key flake inputs
 
-`nixpkgs` (nixos-unstable), `flake-parts`, `deploy-rs`, `home-manager` (release-25.11), `agenix`, `docxty`/`wedding-page`/`directo`/`refl` (project repos; `refl` keeps its own nixpkgs pins for the provers, no `follows`), and an Olimpo-local `path:/home/hhefesto/src/xpsoasis` input. Restore xpsOasis to its Git branch after the single-backend changes are committed; never deploy xty while path-pinned. Other inputs: `claude-code-nix`, `opencode`, `telomare`, `spacemacs` (non-flake).
+`nixpkgs` (nixos-unstable), `flake-parts`, `deploy-rs`, `home-manager` (release-25.11), `agenix`, `docxty`/`wedding-page`/`directo`/`refl` (project repos; `refl` keeps its own nixpkgs pins for the provers, no `follows`), and an Olimpo-local `path:/home/hhefesto/src/xpsoasis` input. Restore xpsOasis to its Git branch after the single-backend changes are committed; never deploy xty while path-pinned. Other inputs: `claude-code-nix`, `opencode`, `telomare`.
 
 Binary caches: `hercules-ci.cachix.org`, `telomare.cachix.org`, `nixcache.reflex-frp.org`, `claude-code.cachix.org`.
 
@@ -129,6 +129,18 @@ inlines the `$6$…` crypt hash). `~/src` is not a git repo, so nothing
 auto-commits, but treat the directory accordingly. The corpus files are
 scrubbed, but the `.md` renderings are **not** — only the corpus is safe to
 move off this machine.
+
+## Spacemacs setup
+
+Spacemacs is not Nix-managed beyond the bare `emacs` binary (`programs.emacs`, no `extraPackages`). It behaves as on any distro:
+
+- `~/.emacs.d` is a git checkout of Spacemacs `develop`. Update it with `git pull` there; ELPA packages are installed and updated by Spacemacs.
+- `~/.spacemacs` is an out-of-store symlink to `./spacemacs`, so edits from Emacs (SPC f e d, customize) land in this working tree.
+- The `spacemacs` activation entry in `home.nix` runs on every switch:
+  - It clones `~/.emacs.d` at `spacemacs.rev` only when it is missing (a new machine).
+  - It records the live `~/.emacs.d` HEAD in `spacemacs.rev` when that HEAD is ahead of the recorded one. A host that is behind leaves the record alone.
+  - It auto-commits `spacemacs` and `spacemacs.rev` with a message like `spacemacs: dotfile, core abc1234..def5678 (olimpo)`.
+- telomare-mode is loaded from `~/.local/share/telomare` (a symlink to the `telomare` input).
 
 ## tmux setup
 

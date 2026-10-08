@@ -33,10 +33,6 @@
     codex-cli-nix.url = "github:sadjow/codex-cli-nix";
     opencode.url = "github:anomalyco/opencode/c5db39f6268a36194a7fe5f833ae3197dfe250b6";
     telomare.url = "git+ssh://git@github.com/hhefesto/stand-in-language?ref=source-locations";
-    spacemacs = {
-      url = "github:syl20bnr/spacemacs";
-      flake = false;
-    };
   };
 
   outputs = inputs@{ self, flake-parts, nixpkgs, home-manager, deploy-rs, ... }:
@@ -55,7 +51,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.hhefesto = import ./home.nix;
           home-manager.extraSpecialArgs = {
-            inherit (inputs) spacemacs telomare;
+            inherit (inputs) telomare;
             inherit xmobarrc;
           };
         };
