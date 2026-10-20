@@ -170,6 +170,14 @@
             cookieDomain = "xpsoasis.hhefesto.dev";
             spectraUrl = "https://aaspectra.xpsoasis.hhefesto.dev";
             ports = { nginx = 80; backend = 3003; };
+            # The account production mails from and support notices go to:
+            # the module's defaults before rdataa/xpsOasis#231 made the
+            # deployment name them.
+            adminEmail = "moperatico@rdataa.com";
+            smtp = {
+              from = "moperatico@rdataa.com";
+              user = "moperatico@rdataa.com";
+            };
           };
 
           # Spectra (web AAnalyzer) — production sibling of xpsoasis. nginx
