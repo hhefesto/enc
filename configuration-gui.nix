@@ -50,7 +50,12 @@ in
     brave
     virt-manager
     slack
-    pywal
+    # nixpkgs' Python builder uses structured attributes, which hand each
+    # makeWrapperArgs element to makeWrapper as one argument; pywal16 gives
+    # `--prefix PATH : <imagemagick>` as a single string, so its build dies.
+    (pywal.overridePythonAttrs {
+      makeWrapperArgs = [ "--prefix" "PATH" ":" (lib.makeBinPath [ imagemagick ]) ];
+    })
     sox
     zoom-us
     discord-ptb
@@ -73,7 +78,6 @@ in
     dropbox-cli
     nautilus
     gnome-terminal
-    calibre
     sshpass
     gimp
     gparted

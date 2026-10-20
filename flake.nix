@@ -23,16 +23,17 @@
     docxty.url = "git+ssh://git@github.com/hhefesto/docxty";
     wedding-page.url = "github:hhefesto/wedding-website";
     directo.url = "git+ssh://git@github.com/hhefesto/directo";
-    # Single-Servant parity branch; both Olimpo and xty evaluate the same
-    # application source, but deployment remains an explicit separate step.
-    xpsoasis.url = "git+ssh://git@github.com/rdataa/xpsOasis?ref=xpsoasis-single-servant";
+    # master, where the single-Servant backend landed (rdataa/xpsOasis#218);
+    # both Olimpo and xty evaluate the same application source, but
+    # deployment remains an explicit separate step.
+    xpsoasis.url = "git+ssh://git@github.com/rdataa/xpsOasis";
     # Spectra (web AAnalyzer): C++ engine + reflex frontend.
     # Prod home: aaspectra.xpsoasis.org.
     aanalyzer-classic.url = "git+ssh://git@github.com/rdataa/aanalyzer-classic?ref=headless-backend";
     claude-code-nix.url = "github:sadjow/claude-code-nix";
     codex-cli-nix.url = "github:sadjow/codex-cli-nix";
     opencode.url = "github:anomalyco/opencode/c5db39f6268a36194a7fe5f833ae3197dfe250b6";
-    telomare.url = "git+ssh://git@github.com/hhefesto/stand-in-language?ref=source-locations";
+    telomare.url = "git+ssh://git@github.com/Stand-In-Language/stand-in-language";
   };
 
   outputs = inputs@{ self, flake-parts, nixpkgs, home-manager, deploy-rs, ... }:
