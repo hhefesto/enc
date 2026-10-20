@@ -136,6 +136,9 @@ in
   };
   programs.xmobar.enable = true;
   programs.xmobar.extraConfig = builtins.readFile xmobarrc;
+  # The binary only: with no `remotes` declared, the module leaves
+  # ~/.config/rclone/rclone.conf to rclone itself.
+  programs.rclone.enable = true;
   programs.home-manager.enable = true;
 
   services.dunst.enable = true;
