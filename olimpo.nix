@@ -93,4 +93,28 @@
       KbdInteractiveAuthentication no
       ConnectTimeout 3
   '';
+
+  # --- The iPhone, over Tailscale -------------------------------------------
+
+  # The phone reaches olimpo through the tailnet only; nothing new opens to
+  # the LAN or the internet. Log in once with `tailscale up`.
+  # openFirewall is tailscaled's own UDP port (41641), for direct links
+  # instead of DERP relays. The operator runs tailscale's commands (up, down,
+  # set) without sudo.
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+    extraSetFlags = [ "--operator=hhefesto" ];
+  };
+
+  # mosh (Blink on iOS) keeps the session through sleep and network changes;
+  # its ssh login attaches to tmux "main" (configuration-core.nix). Its UDP
+  # ports open on the tailnet interface only.
+  programs.mosh = {
+    enable = true;
+    openFirewall = false;
+  };
+  networking.firewall.interfaces.tailscale0.allowedUDPPortRanges = [
+    { from = 60000; to = 61000; }
+  ];
 }

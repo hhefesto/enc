@@ -44,6 +44,16 @@ in
     inputs.opencode.overlays.default
   ];
 
+  # mugen (~/src/mugen) runs `claude -p` itself, on this claude-code rather
+  # than the wrapper above, which would open a debug log for every summary
+  # it asks for. It does the wrapper's part for its chat calls: a session id,
+  # and a debug log in this dir beside the transcript, named as the wrapper
+  # names them.
+  environment.sessionVariables = {
+    MUGEN_CLAUDE = "${pkgs.claude-code}/bin/claude";
+    MUGEN_DEBUG_DIR = "$HOME/src/llm-transcript";
+  };
+
   environment.systemPackages = with pkgs; [
     python3
     openssl
