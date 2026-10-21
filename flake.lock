@@ -890,11 +890,11 @@
         "uniichat": "uniichat"
       },
       "locked": {
-        "lastModified": 1792619082,
-        "narHash": "sha256-5bpOeki0GOlbs8j5OikCM0cbffiVAxCXP9wyMh0AKec=",
+        "lastModified": 1792619998,
+        "narHash": "sha256-6uAavdRzYDdDsuopoev9+EypFgUl3QCcXSAwB5rX6es=",
         "owner": "hhefesto",
         "repo": "mugen",
-        "rev": "e4270dadeca946f354cb2e9776f0575797a2f292",
+        "rev": "fa6614b02313712e62d01e857d97d82bfa2fd125",
         "type": "github"
       },
       "original": {
