@@ -94,6 +94,11 @@
       ConnectTimeout 3
   '';
 
+  # mugen (無限): one chat that never ends, in the terminal, on Claude Code
+  # (`mugen login` once) or the API (`mugen --api`). MUGEN_CLAUDE and
+  # MUGEN_DEBUG_DIR come from configuration-workstation.nix.
+  environment.systemPackages = [ inputs.mugen.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+
   # --- The iPhone, over Tailscale -------------------------------------------
 
   # The phone reaches olimpo through the tailnet only; nothing new opens to

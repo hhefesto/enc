@@ -20,6 +20,10 @@
     # The Refl proof game (Agda / Lean 4 / Bend 2). Its provers keep their
     # own nixpkgs pins on purpose: no `follows`.
     refl.url = "github:hhefesto/refl";
+    # mugen (無限): UniiChat in Bend 2, one chat that never ends, in the
+    # terminal. Like Refl, it keeps its own nixpkgs and Bend 2 pins: no
+    # `follows`.
+    mugen.url = "github:hhefesto/mugen";
     docxty.url = "git+ssh://git@github.com/hhefesto/docxty";
     wedding-page.url = "github:hhefesto/wedding-website";
     directo.url = "git+ssh://git@github.com/hhefesto/directo";
