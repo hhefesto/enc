@@ -131,6 +131,30 @@ in
     bind -T copy-mode M-w send -X copy-pipe-and-cancel "${pkgs.xclip}/bin/xclip -selection clipboard"
   '';
 
+  # A tmux pane keeps the environment of the shell that made it, and myterm
+  # reattaches whatever session no client is on (tmux-attach-or-new above). A
+  # session made over ssh/mosh from the phone has no DISPLAY or XAUTHORITY, so
+  # at the desk its shell couldn't reach X ("scrot: Can't open X display").
+  # Before each command, take both from the tmux client being typed on: the
+  # desk terminal gives them, the phone takes them away (so emacs, EDITOR,
+  # opens in the phone's terminal, not on the desk's screen).
+  programs.zsh.interactiveShellInit = ''
+    _tmux_client_x11() {
+      [[ -n $TMUX ]] || return 0
+      local pid v x
+      pid=$(${config.programs.tmux.package}/bin/tmux display-message -p '#{client_pid}' 2>/dev/null)
+      [[ -n $pid && -r /proc/$pid/environ ]] || return 0
+      local -a env
+      env=(''${(0)"$(</proc/$pid/environ)"})
+      for v in DISPLAY XAUTHORITY; do
+        x=''${(M)env:#$v=*}
+        if [[ -n $x ]]; then export "$x"; else unset $v; fi
+      done
+    }
+    autoload -Uz add-zsh-hook
+    add-zsh-hook preexec _tmux_client_x11
+  '';
+
   hardware.bluetooth.enable = true;
   services.pipewire = {
     enable = true;
