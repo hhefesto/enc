@@ -154,12 +154,12 @@ Full evidence: `~/src/refl/HANDOFF.md`.
 Keep `refl.url = "github:hhefesto/refl"`. Update only that lock node after
 publication; preserve all of the user's refreshed system pins and kernel.
 `ns` is already defined in this repository's `configuration-workstation.nix`
-as `nixos-rebuild switch --sudo --flake ~/src/etc-nixos-configuration`.
+as `nixos-rebuild switch --sudo --flake ~/src/enc`.
 Existing shells may need `exec zsh`; do not edit generated `/etc/zshrc`.
 
-The agent builds with `nixos-rebuild build --flake ~/src/etc-nixos-configuration`.
+The agent builds with `nixos-rebuild build --flake ~/src/enc`.
 The user activates with `nixos-rebuild switch --sudo --flake
-~/src/etc-nixos-configuration`, then assesses http://127.0.0.1:3007.
+~/src/enc`, then assesses http://127.0.0.1:3007.
 Approval of this new candidate is pending. No activation performed by the agent.
 Exact published revision and build result follow below.
 
@@ -184,7 +184,7 @@ Tested implementation: `11649932894938d432535e407f0c8bc2d92c5189`.
 Only lock node `refl` differs from `/tmp/refl-meet-consumer-before.lock`;
 all unrelated user-refreshed pins are preserved.
 
-`nixos-rebuild build --flake ~/src/etc-nixos-configuration` succeeded:
+`nixos-rebuild build --flake ~/src/enc` succeeded:
 `/nix/store/aqk38xfyhb7vici9jgpqk2a3cfsvhxh4-nixos-system-olimpo-26.11.20260919.20b1ddd`.
 Log: `/tmp/refl-meet-olimpo-build.log`.
 Candidate refl ExecStart:

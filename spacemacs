@@ -563,7 +563,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  ;; ~/.spacemacs is a symlink into etc-nixos-configuration: open it there
+  ;; ~/.spacemacs is a symlink into ~/src/enc: open it there
   ;; without asking.
   (setq vc-follow-symlinks t))
 

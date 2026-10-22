@@ -145,8 +145,8 @@ in
       # Build and evaluate as the invoking user so the ssh-agent is
       # available for the private git+ssh flake inputs; --sudo elevates
       # only the activation steps.
-      sn = "nixos-rebuild -v switch --sudo --flake ~/src/etc-nixos-configuration";
-      ns = "nixos-rebuild switch --sudo --flake ~/src/etc-nixos-configuration";
+      sn = "nixos-rebuild -v switch --sudo --flake ~/src/enc";
+      ns = "nixos-rebuild switch --sudo --flake ~/src/enc";
       gr = "grep -R --exclude='TAGS' --exclude-dir={.stack-work,dist-newstyle,result,result-2} -n";
       where = "pwd";
     };

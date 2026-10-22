@@ -2,7 +2,7 @@
 let
   # This checkout. ~/.spacemacs points into it and the spacemacs activation
   # commits to it, so it must live here on every host.
-  repo = "${config.home.homeDirectory}/src/etc-nixos-configuration";
+  repo = "${config.home.homeDirectory}/src/enc";
   spacemacsRev = lib.fileContents ./spacemacs.rev;
 in
 {

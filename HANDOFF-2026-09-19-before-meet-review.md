@@ -19,7 +19,7 @@ only handoff documentation), so its native/content/browser/security evidence
 below still applies. No additional application code was changed in this fix.
 
 `ns` is defined in **this repository**, `configuration-workstation.nix:139`,
-as `nixos-rebuild switch --sudo --flake ~/src/etc-nixos-configuration`.
+as `nixos-rebuild switch --sudo --flake ~/src/enc`.
 NixOS generates `/etc/zshrc` from it; that generated file was never edited by
 the agent. The current active configuration already contains the alias.
 Existing zsh sessions, including reattached tmux panes, need `exec zsh`.
@@ -55,13 +55,13 @@ and local module acceptance do not substitute for VM resource-exhaustion tests.
 ## Local rollout and approval
 
 Only the reviewed refl snapshot is pinned; unrelated dependencies are unchanged.
-Added `ns = "nixos-rebuild switch --sudo --flake ~/src/etc-nixos-configuration"`
+Added `ns = "nixos-rebuild switch --sudo --flake ~/src/enc"`
 to workstation zsh aliases. Existing `sn` remains available. The user's final
 path spelling had an extra slash; use the actual existing checkout above.
 
-Built with `nixos-rebuild build --flake ~/src/etc-nixos-configuration`.
+Built with `nixos-rebuild build --flake ~/src/enc`.
 The user then runs `nixos-rebuild switch --sudo --flake
-~/src/etc-nixos-configuration`; start a new zsh afterwards for `ns`.
+~/src/enc`; start a new zsh afterwards for `ns`.
 After switch, verify http://127.0.0.1:3007 through the module and let the user
 assess the lesson. Explicit production approval is still required.
 
@@ -143,13 +143,13 @@ that refl's ExecStart matches the candidate above before accepting the result.
 
 ## GitHub follow-up build verified
 
-`nixos-rebuild build --flake ~/src/etc-nixos-configuration` succeeded with
+`nixos-rebuild build --flake ~/src/enc` succeeded with
 `/nix/store/abcxpdmda31bp9xl0jbzcc0fvcjy79qf-nixos-system-olimpo-26.11.20260919.20b1ddd`.
 Log: `/tmp/refl-olimpo-github-build.log`. It retains the running kernel 6.18.52.
 Only refl.service (and its wantedBy symlink) differs in the system unit tree
 from the current running generation. The built zshrc contains `ns`; refl's
 ExecStart references the reviewed `/nix/store/f8lx96yyy0hjswwgsk1h8v25447dw793-refl-site/bin/refl-site`.
 Activation remains the user's step:
-`nixos-rebuild switch --sudo --flake ~/src/etc-nixos-configuration`.
+`nixos-rebuild switch --sudo --flake ~/src/enc`.
 The running lesson will remain old until that switch; afterwards verify :3007
 using the previously documented existing-service browser test.

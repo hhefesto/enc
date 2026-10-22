@@ -1,8 +1,13 @@
-# etc-nixos-configuration
+# enc
 
 NixOS flake for hhefesto's machines: `olimpo` + `delfos` (workstations) and `xty` (production server at 62.238.6.4 hosting docxty.net, cfo-vision.com, and xty-y-dan.net).
 
-- Rebuild locally: `sn` (alias for `sudo nixos-rebuild switch --flake ~/src/etc-nixos-configuration`)
+The name `enc` is an abbreviation of the repo's old name,
+**e**tc-**n**ixos-**c**onfiguration (renamed on 2026-10-22). It is not
+about encryption. The checkout lives in `~/src/enc` on every workstation:
+`home.nix` links `~/.spacemacs` into it.
+
+- Rebuild locally: `ns` (alias for `nixos-rebuild switch --sudo --flake ~/src/enc`; `sn` is the same with `-v`)
 - Deploy production: `nix run .#deploy-xty`
 - Details: `Claude.md`
 

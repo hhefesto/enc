@@ -1,11 +1,11 @@
-# CLAUDE.md — etc-nixos-configuration
+# CLAUDE.md — enc (short for etc-nixos-configuration)
 
 ## FP taste
 
 Primary languages: **Nix, Haskell, Agda**. Strongly prefers functional, type-driven, declarative solutions. When explaining code, favour equational reasoning and type-driven thinking over imperative walkthroughs. Do not suggest Python/Bash alternatives without a clear reason (small Bash commands are OK) — reach for Nix derivations or Haskell programs first.
 
 - Emacs (spacemacs) is the primary editor. Do not suggest switching editors or IDEs.
-- Rebuild shorthand: `sn` → `sudo nixos-rebuild -v switch --flake ~/src/etc-nixos-configuration`.
+- Rebuild shorthand: `sn` → `sudo nixos-rebuild -v switch --flake ~/src/enc`.
 
 ---
 
