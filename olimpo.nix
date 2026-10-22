@@ -38,9 +38,10 @@
   # before soft recovery instead of 10 s.
   # NOTE (2026-07-10): a single value sets only the NON-COMPUTE rings
   # (GFX, SDMA, Video); rusticl submits OpenCL work to the COMPUTE ring,
-  # which kept its default and soft-reset formalTransformer's small-preset
-  # gradient kernel after ~11 s.  The four-value form [GFX,Compute,SDMA,
-  # Video] covers the compute ring explicitly.  Takes effect on reboot.
+  # which kept its default and soft-reset ana's (then formalTransformer's)
+  # small-preset gradient kernel after ~11 s.  The four-value form
+  # [GFX,Compute,SDMA,Video] covers the compute ring explicitly.  Takes
+  # effect on reboot.
   boot.kernelParams = [ "amdgpu.lockup_timeout=60000,60000,60000,60000" ];
 
   # --- LAN binary-cache: olimpo <-> delfos over ssh-ng ---------------------

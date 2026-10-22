@@ -689,7 +689,7 @@ findSessions root = do
 -- --------------------------------------------------------------- corpus mode
 
 -- | Emit training documents from every session: JSONL {id, text}, the format
--- formalTransformer's plan-corpus.sh consumes.  Cleaned (capped output, no
+-- ana's `deploy plan-corpus` consumes.  Cleaned (capped output, no
 -- Read bodies, no bookkeeping), scrubbed (secrets to stable placeholders,
 -- with a printed per-class report), exact-deduplicated, and with a few whole
 -- sessions held out to <out>.holdout.jsonl so a later split cannot put
