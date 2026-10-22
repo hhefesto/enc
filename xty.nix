@@ -50,6 +50,15 @@
 
   security.sudo.wheelNeedsPassword = false;
 
+  # ~/.spacemacs. xty has no home-manager and no ~/src, so instead of a
+  # link into a checkout (the workstations' home.nix) it links to this
+  # flake's ./spacemacs in the store, which every deploy brings along.  L+
+  # replaces whatever is there, such as the dead link into this repo's
+  # old checkout path that an early docxty deploy left.
+  systemd.tmpfiles.rules = [
+    "L+ /home/hhefesto/.spacemacs - - - - ${./spacemacs}"
+  ];
+
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJcDIsto/6GS7XwTl+uVo4ABeRlRjDwAU0HHy8irqLaB hhefesto@olimpo"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBAolzCtF1t8rPKSRzvREQPBUjxRAi5medog8Ebi0n/G hhefesto@delfos"
