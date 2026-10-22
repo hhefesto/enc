@@ -83,6 +83,7 @@ in
     gparted
     google-chrome
     ffmpeg
+    vhs # terminal session GIFs from a tape script (the mugen and ana demos)
     xdotool
     xvkbd
     inkscape
