@@ -140,6 +140,7 @@ Spacemacs is not Nix-managed beyond the bare `emacs` binary (`programs.emacs`, n
   - It clones `~/.emacs.d` at `spacemacs.rev` only when it is missing (a new machine).
   - It records the live `~/.emacs.d` HEAD in `spacemacs.rev` when that HEAD is ahead of the recorded one. A host that is behind leaves the record alone.
   - It auto-commits `spacemacs` and `spacemacs.rev` with a message like `spacemacs: dotfile, core abc1234..def5678 (olimpo)`.
+- xty has no home-manager and no `~/src`: `xty.nix` links its `~/.spacemacs` (tmpfiles `L+`) to the store copy of `./spacemacs`, so a deploy carries the dotfile there. xty has no `~/.emacs.d`.
 - telomare-mode is loaded from `~/.local/share/telomare` (a symlink to the `telomare` input).
 
 ## tmux setup
