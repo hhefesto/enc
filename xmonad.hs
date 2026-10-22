@@ -71,9 +71,12 @@ main = do
         , focusedBorderColor = myFocusedBorderColor
         , terminal           = myTerminal
         } `additionalKeysP`
-        [ ("<Print>", spawn "touch /tmp/print-test")
-        , ("M-<Print>", spawn "sh -lc 'mkdir -p ~/Pictures/Screenshots; f=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png; scrot -s \"$f\"; s=$?; echo $(date) scrot=$s file=$f >> /tmp/xmonad-print.log; env | grep -E \\\"DBUS|XDG_RUNTIME_DIR|DISPLAY\\\" >> /tmp/xmonad-print.log; if [ $s -eq 0 ]; then notify-send Screenshot \"$f\"; n=$?; echo notify=$n >> /tmp/xmonad-print.log; else notify-send \"scrot failed\"; n=$?; echo notify=$n >> /tmp/xmonad-print.log; fi'")
-        , ("M-c", spawn "scrot -s /tmp/ocr.png && tesseract /tmp/ocr.png - | xclip -selection clipboard && rm /tmp/ocr.png")
+        -- scrot -s grabs the keyboard (any key cancels the selection) and
+        -- waits only a second for xmonad to release the grab of the key just
+        -- pressed: unGrab releases it at once.
+        [ ("<Print>", unGrab *> spawn (screenshot "-s"))
+        , ("M-<Print>", unGrab *> spawn (screenshot ""))
+        , ("M-c", unGrab *> spawn "scrot -s /tmp/ocr.png && tesseract /tmp/ocr.png - | xclip -selection clipboard && rm /tmp/ocr.png")
         , ("<XF86MonBrightnessUp>", spawn "brightnessctl set 5%+")
         , ("<XF86MonBrightnessDown>", spawn "brightnessctl set 5%-")
         , ("M-y", spawn "brightnessctl set 1") -- set to minimum brightness
@@ -82,3 +85,17 @@ main = do
         , ("M-m", spawn "amixer set Master toggle")
         , ("M-q", restart "/run/current-system/sw/bin/xmonad" True)
         ]
+
+-- | A screenshot into ~/Pictures/Screenshots, its path then on the
+-- clipboard.  With -s, drag a rectangle or click a window; a key or a
+-- second mouse button cancels, and the notification says which.  scrot's
+-- complaints also go to /tmp/xmonad-screenshot.log.  xclip stays behind to
+-- serve the clipboard, so its output must not hold the $(...) pipe open.
+screenshot :: String -> String
+screenshot flags =
+  "mkdir -p ~/Pictures/Screenshots; "
+    ++ "if e=$(scrot " ++ flags ++ " ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
+    ++ " -e 'echo -n $f | xclip -selection clipboard >/dev/null 2>&1; notify-send Screenshot $f'"
+    ++ " 2>&1 >/dev/null);"
+    ++ " then :; else echo \"$(date) $e\" >> /tmp/xmonad-screenshot.log;"
+    ++ " notify-send 'No screenshot' \"$e\"; fi"
