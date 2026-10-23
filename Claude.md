@@ -25,7 +25,7 @@ Primary languages: **Nix, Haskell, Agda**. Strongly prefers functional, type-dri
 | `olimpo.nix` / `delfos.nix` / `xty.nix` + `hardware-configuration-*.nix` | Per-host. olimpo↔delfos share LAN ssh-ng binary caches; delfos has dynamic timezone; xty is the headless production server (62.238.6.4, fail2ban, keys-only SSH). |
 | `secrets/` | agenix: `secrets.nix` recipients + `user-password.age` (rotate: `secrets/rotate-user-password.sh`). |
 | `xmonad.hs`, `xmobarrc-olimpo`, `xmobarrc-delfos` | xmonad config; `@xmonadShortenLength@` substituted per host. `myTerminal = "myterm"` (tmux wrapper from `configuration-gui.nix`). |
-| `spacemacs`, `spacemacs.rev` | `~/.spacemacs` (symlinked here, edited live from Emacs) and the recorded Spacemacs core commit. See "Spacemacs setup". `doom.d/` is an old Doom config. |
+| `spacemacs`, `spacemacs.rev` | `~/.spacemacs` (symlinked here, edited live from Emacs) and the recorded Spacemacs core commit. See "Spacemacs setup". |
 
 **Navigation:** `flake.nix` → `mkHost` → per-host module lists (workstations: `configuration.nix` + gui + projects desktop-profile; xty: core + projects production-profile).
 

@@ -87,10 +87,6 @@ in
 
   programs.zsh.enable = true;
 
-  # Add the doom binary to your PATH
-  # home.sessionPath = [ "$HOME/.emacs.d/bin"
-  #                    ];
-
   # The bare binary: Spacemacs installs every elisp package itself.
   programs.emacs.enable = true;
 
