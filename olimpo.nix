@@ -77,6 +77,21 @@
   nix.settings.allowed-users = [ "nix-ssh" ];
   nix.settings.trusted-users = [ "nix-ssh" ];
 
+  # Determinate Nix reads only /nix/var/determinate/netrc (FlakeHub's
+  # token); a netrc-file set in ~/.config/nix/nix.conf replaces it and
+  # FlakeHub breaks. Our own entries (the cachix token for
+  # tontinetrust-roboactuary) go in through additionalNetrcSources,
+  # which Determinate Nixd merges into its netrc. The file must exist
+  # outside the store, or the daemon won't start. The merged netrc is
+  # world-readable (Determinate requires it).
+  age.secrets.nix-netrc = {
+    file = ./secrets/nix-netrc.age;
+    mode = "0400";
+  };
+  environment.etc."determinate/config.json".text = builtins.toJSON {
+    authentication.additionalNetrcSources = [ config.age.secrets.nix-netrc.path ];
+  };
+
   # Pre-seed delfos's host key so root's ssh client doesn't prompt.
   programs.ssh.knownHosts."delfos-nix-cache" = {
     hostNames = [ "delfos-nix-cache" "192.168.3.6" ];
@@ -98,7 +113,26 @@
   # mugen (無限): one chat that never ends, in the terminal, on Claude Code
   # (`mugen login` once) or the API (`mugen --api`). MUGEN_CLAUDE and
   # MUGEN_DEBUG_DIR come from configuration-workstation.nix.
-  environment.systemPackages = [ inputs.mugen.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+  environment.systemPackages = [
+    inputs.mugen.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # `mu`: go to the tmux session where mugen runs. From the phone, an ssh
+    # login lands in tmux "main" (configuration-core.nix); `mu` switches
+    # that client to mugen's session (attaches, outside tmux).
+    (pkgs.writeShellScriptBin "mu" ''
+      tmux=${config.programs.tmux.package}/bin/tmux
+      s=$("$tmux" list-panes -a -F '#{session_name} #{window_index}.#{pane_index} #{pane_current_command}' 2>/dev/null \
+        | ${pkgs.gawk}/bin/awk '$3 == "mugen" { print $1 ":" $2; exit }')
+      if [ -z "$s" ]; then
+        echo "mu: no mugen running in tmux; start one with: mugen" >&2
+        exit 1
+      fi
+      if [ -n "$TMUX" ]; then
+        exec "$tmux" switch-client -t "$s"
+      else
+        exec "$tmux" attach-session -t "$s"
+      fi
+    '')
+  ];
 
   # --- The iPhone, over Tailscale -------------------------------------------
 
