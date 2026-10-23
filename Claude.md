@@ -17,7 +17,7 @@ Primary languages: **Nix, Haskell, Agda**. Strongly prefers functional, type-dri
 |---|---|
 | `flake.nix` | Entry point. Uses `flake-parts`. `mkHost` helper. Builds `nixosConfigurations.{olimpo,delfos,xty}`, `deploy.nodes.xty`, pre-deploy checks, `apps.deploy-xty`. |
 | `configuration-core.nix` | Every host: users (agenix-managed login hash in `secrets/user-password.age`, `linger = true` for tmux), ssh, nix settings, agenix module import, `programs.tmux` + the zsh SSH auto-attach. |
-| `configuration-workstation.nix` | Workstations: dev tools, zsh (system-wide aliases; root shell is zsh), docker, claude-code/opencode overlays. |
+| `configuration-workstation.nix` | Workstations: dev tools, zsh (system-wide aliases; root shell is zsh), docker, claude-code overlay. |
 | `configuration-gui.nix` | Workstations: X11/xmonad, desktop apps, fonts, pipewire, LAN firewall. |
 | `configuration.nix` | 7-line stub = core + workstation (imported by olimpo/delfos only). |
 | `home.nix` | home-manager for `hhefesto` (NixOS module, `useGlobalPkgs` + `useUserPackages`); seeds `~/.claude` hooks. |
@@ -48,7 +48,7 @@ Deploy: `nix run .#deploy-xty` (docxty backup health check → pure checks → l
 
 ### Key flake inputs
 
-`nixpkgs` (nixos-unstable), `flake-parts`, `deploy-rs`, `home-manager` (release-25.11), `agenix`, `docxty`/`wedding-page`/`directo`/`refl` (project repos; `refl` keeps its own nixpkgs pins for the provers, no `follows`), and an Olimpo-local `path:/home/hhefesto/src/xpsoasis` input. Restore xpsOasis to its Git branch after the single-backend changes are committed; never deploy xty while path-pinned. Other inputs: `claude-code-nix`, `opencode`, `telomare`.
+`nixpkgs` (nixos-unstable), `flake-parts`, `deploy-rs`, `home-manager` (release-25.11), `agenix`, `docxty`/`wedding-page`/`directo`/`refl` (project repos; `refl` keeps its own nixpkgs pins for the provers, no `follows`), and an Olimpo-local `path:/home/hhefesto/src/xpsoasis` input. Restore xpsOasis to its Git branch after the single-backend changes are committed; never deploy xty while path-pinned. Other inputs: `claude-code-nix`, `telomare`.
 
 Binary caches: `hercules-ci.cachix.org`, `telomare.cachix.org`, `nixcache.reflex-frp.org`, `claude-code.cachix.org`.
 

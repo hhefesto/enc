@@ -38,10 +38,6 @@ in
 {
   nixpkgs.overlays = [
     inputs.claude-code-nix.overlays.default
-    (final: prev: {
-      bun = inputs.opencode.inputs.nixpkgs.legacyPackages.${prev.stdenv.hostPlatform.system}.bun;
-    })
-    inputs.opencode.overlays.default
   ];
 
   # mugen (~/src/mugen) runs `claude -p` itself, on this claude-code rather
@@ -58,7 +54,6 @@ in
     python3
     openssl
     bind
-    opencode
     inputs.codex-cli-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
     claude-wrapped
     llm-transcript

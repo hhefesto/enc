@@ -36,7 +36,6 @@
     aanalyzer-classic.url = "git+ssh://git@github.com/rdataa/aanalyzer-classic?ref=headless-backend";
     claude-code-nix.url = "github:sadjow/claude-code-nix";
     codex-cli-nix.url = "github:sadjow/codex-cli-nix";
-    opencode.url = "github:anomalyco/opencode/c5db39f6268a36194a7fe5f833ae3197dfe250b6";
     telomare.url = "git+ssh://git@github.com/Stand-In-Language/stand-in-language";
   };
 
