@@ -77,21 +77,6 @@
   nix.settings.allowed-users = [ "nix-ssh" ];
   nix.settings.trusted-users = [ "nix-ssh" ];
 
-  # Determinate Nix reads only /nix/var/determinate/netrc (FlakeHub's
-  # token); a netrc-file set in ~/.config/nix/nix.conf replaces it and
-  # FlakeHub breaks. Our own entries (the cachix token for
-  # tontinetrust-roboactuary) go in through additionalNetrcSources,
-  # which Determinate Nixd merges into its netrc. The file must exist
-  # outside the store, or the daemon won't start. The merged netrc is
-  # world-readable (Determinate requires it).
-  age.secrets.nix-netrc = {
-    file = ./secrets/nix-netrc.age;
-    mode = "0400";
-  };
-  environment.etc."determinate/config.json".text = builtins.toJSON {
-    authentication.additionalNetrcSources = [ config.age.secrets.nix-netrc.path ];
-  };
-
   # Pre-seed delfos's host key so root's ssh client doesn't prompt.
   programs.ssh.knownHosts."delfos-nix-cache" = {
     hostNames = [ "delfos-nix-cache" "192.168.3.6" ];

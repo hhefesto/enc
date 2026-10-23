@@ -13,8 +13,4 @@ in
   # consumed via users.users.*.hashedPasswordFile in configuration-core.nix.
   # Rotate with ./rotate-user-password.sh
   "user-password.age".publicKeys = users ++ systems;
-
-  # netrc with the cachix token for tontinetrust-roboactuary.cachix.org,
-  # merged by Determinate Nixd into /nix/var/determinate/netrc (olimpo.nix).
-  "nix-netrc.age".publicKeys = users ++ [ olimpo ];
 }
