@@ -50,6 +50,13 @@ in
     MUGEN_DEBUG_DIR = "$HOME/src/llm-transcript";
   };
 
+  # mugen's spellcheck underlines with SGR 4:3 (curly) in red (SGR 58).
+  # tmux passes styled and colored underlines through only to a terminal
+  # it knows has them: gnome-terminal (VTE) does, and says xterm-256color.
+  programs.tmux.extraConfig = ''
+    set -as terminal-features ",xterm*:usstyle"
+  '';
+
   environment.systemPackages = with pkgs; [
     python3
     openssl
