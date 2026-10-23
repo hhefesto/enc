@@ -56,6 +56,9 @@ in
     bind
     inputs.codex-cli-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
     claude-wrapped
+    # mugen (無限): one chat that never ends, in the terminal, on Claude Code
+    # (`mugen login` once) or the API (`mugen --api`); wherever Claude Code is.
+    inputs.mugen.packages.${pkgs.stdenv.hostPlatform.system}.default
     llm-transcript
     tesseract
     poppler-utils
