@@ -152,6 +152,7 @@ in
       # only the activation steps.
       sn = "nixos-rebuild -v switch --sudo --flake ~/src/enc";
       ns = "nixos-rebuild switch --sudo --flake ~/src/enc";
+      nb = "nixos-rebuild build --flake ~/src/enc";
       gr = "grep -R --exclude='TAGS' --exclude-dir={.stack-work,dist-newstyle,result,result-2} -n";
       where = "pwd";
     };

@@ -7,7 +7,7 @@ The name `enc` is an abbreviation of the repo's old name,
 about encryption. The checkout lives in `~/src/enc` on every workstation:
 `home.nix` links `~/.spacemacs` into it.
 
-- Rebuild locally: `ns` (alias for `nixos-rebuild switch --sudo --flake ~/src/enc`; `sn` is the same with `-v`)
+- Rebuild locally: `ns` (alias for `nixos-rebuild switch --sudo --flake ~/src/enc`; `sn` is the same with `-v`; `nb` builds without switching: `nixos-rebuild build --flake ~/src/enc`)
 - Deploy production: `nix run .#deploy-xty`
 - Details: `Claude.md`
 
