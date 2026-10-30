@@ -116,6 +116,25 @@
     '')
   ];
 
+  # --- mugen's chat in a browser ------------------------------------------
+
+  # mugen-web reads ~/.mugen and types into mugen's tmux pane, so it runs
+  # here, as hhefesto: on the tailnet at http://olimpo:3008/chat/, and at
+  # https://mugen.hhefesto.dev through a reverse tunnel to xty. Set its
+  # password with `mugen-web passwd`; `mugen-web link` prints a one-time
+  # sign-in link.
+  services.mugen-web.origin = {
+    enable = true;
+    user = "hhefesto";
+    tailnet = true;
+    tmux = config.programs.tmux.package;
+    tunnel = {
+      enable = true;
+      host = "62.238.6.4";
+      identityFile = "/home/hhefesto/.ssh/hetzner_ed25519";
+    };
+  };
+
   # --- The iPhone, over Tailscale -------------------------------------------
 
   # The phone reaches olimpo through the tailnet only; nothing new opens to
