@@ -41,6 +41,9 @@ Primary languages: **Nix, Haskell, Agda**. Strongly prefers functional, type-dri
 | `directo` | store (refacciones, Querétaro) | directo.hhefesto.dev | 3002 | `directo` |
 | `xpsoasis` | AAnalyzer (Servant + Reflex; production Yesod is reference-only in master) | xpsoasis.hhefesto.dev | 3003 | `aanalyzer_yesod` (user `analyzer`) |
 | `refl` | The Refl Game (Agda/Lean/Bend proof game, no DB) | refl.hhefesto.dev | 3007 | none |
+| `mugen-web` | mugen's page, and its chat in a browser (the backend runs on **olimpo**, beside mugen; xty serves the site and sends `/api/` down olimpo's reverse ssh tunnel) | mugen.hhefesto.dev | 3008 (tunnel end on xty's loopback) | none |
+
+xty was last deployed (generation 83, 2026-10-31) from branch `xty-mugen-web`: generation 82's commit `9deacff` plus only the mugen-web input and ingress, because master's lock has since moved nixpkgs, docxty, refl, determinate and agenix. A deploy from master brings all of those to production at once. mugen-web's password: `mugen-web passwd` on olimpo (hash in `~/.local/state/mugen-web`); nginx on xty allows 5 sign-in tries a minute per visitor.
 
 Workstation dev nginx ports: expedientes 80, wedding 8084, directo 8085, xpsoasis 8086; refl on olimpo is loopback 3007 (no nginx). xpsOasis has one Servant backend on 3003 for `/api`, `/b`, `/ws`, and the SPA.
 
