@@ -24,6 +24,10 @@
     # terminal. Like Refl, it keeps its own nixpkgs and Bend 2 pins: no
     # `follows`.
     mugen.url = "github:hhefesto/mugen";
+    # mugen's chat in a browser, and mugen's page (mugen.hhefesto.dev): the
+    # backend runs beside mugen on olimpo, xty serves the site and passes
+    # /api/ through olimpo's reverse tunnel.
+    mugen-web.url = "git+ssh://git@github.com/hhefesto/mugen-web";
     docxty.url = "git+ssh://git@github.com/hhefesto/docxty";
     wedding-page.url = "github:hhefesto/wedding-website";
     directo.url = "git+ssh://git@github.com/hhefesto/directo";
@@ -72,6 +76,7 @@
           inputs.directo.nixosModules.default
           inputs.xpsoasis.nixosModules.default
           inputs.aanalyzer-classic.nixosModules.default
+          inputs.mugen-web.nixosModules.default
         ];
 
         workstationServices = {
@@ -193,6 +198,13 @@
             serverName = "aaspectra.xpsoasis.hhefesto.dev";
             ports = { nginx = 80; backend = 3004; };
             oasisUrl = "https://xpsoasis.hhefesto.dev";
+          };
+
+          # mugen's page and its chat: the site from the store, /api/ to
+          # olimpo's tunnel on 127.0.0.1:3008 (services.mugen-web.origin there).
+          services.mugen-web.ingress = {
+            enable = true;
+            serverName = "mugen.hhefesto.dev";
           };
 
           # All four hhefesto.dev certificates were issued on 2026-09-19 during
