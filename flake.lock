@@ -922,11 +922,11 @@
         "uniichat": "uniichat"
       },
       "locked": {
-        "lastModified": 1793625481,
-        "narHash": "sha256-cfMDxV1USwP91q3dY3EF822rB2YwCNEqlQzKolbYWMQ=",
+        "lastModified": 1793633181,
+        "narHash": "sha256-G2gsslJc2pk3u/oM4jjdA6jIXeQmMHiJJgmS2dsSYPM=",
         "owner": "hhefesto",
         "repo": "mugen",
-        "rev": "b21b35a6983a5238426e6ebf5d23372b8390b91a",
+        "rev": "c3275ba7b195f5e4ed6a14bc324f79960fbe3ec7",
         "type": "github"
       },
       "original": {
@@ -943,11 +943,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1793625509,
-        "narHash": "sha256-Lsan4qQlYGaOl4eGcPt5duSGfQNkQNYLMJJO1E7DPxw=",
+        "lastModified": 1793633205,
+        "narHash": "sha256-5njiabru1hdAyNXkEqlvlht6rW41fykHQV177kCnMho=",
         "ref": "refs/heads/master",
-        "rev": "862ccae35e49e2d8f9cc17f5462dbe71ad9dce20",
-        "revCount": 9,
+        "rev": "161a6d3d47d621e2ba83d9cc8848273d6ea4d9a8",
+        "revCount": 10,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/mugen-web"
       },
@@ -959,11 +959,11 @@
     "mugen_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1793625481,
-        "narHash": "sha256-cfMDxV1USwP91q3dY3EF822rB2YwCNEqlQzKolbYWMQ=",
+        "lastModified": 1793633181,
+        "narHash": "sha256-G2gsslJc2pk3u/oM4jjdA6jIXeQmMHiJJgmS2dsSYPM=",
         "owner": "hhefesto",
         "repo": "mugen",
-        "rev": "b21b35a6983a5238426e6ebf5d23372b8390b91a",
+        "rev": "c3275ba7b195f5e4ed6a14bc324f79960fbe3ec7",
         "type": "github"
       },
       "original": {
