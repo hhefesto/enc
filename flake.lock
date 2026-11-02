@@ -944,11 +944,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1793593559,
-        "narHash": "sha256-8QJ3p58g6nEJsdbIV+RZ5MxUG5V97phmroE+bBYVP1M=",
+        "lastModified": 1793620826,
+        "narHash": "sha256-yIZAc0WiC32IRkDL0rTophgyHumviaP7rEW+byFeSRU=",
         "ref": "refs/heads/master",
-        "rev": "010a6bb5bee385e5d11a1bcc4ea0de2c48a26ca1",
-        "revCount": 5,
+        "rev": "bbd027b07b7bd37427a387dcd77e718bc6b6f14b",
+        "revCount": 7,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/mugen-web"
       },
@@ -960,11 +960,11 @@
     "mugen_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1793391936,
-        "narHash": "sha256-Ga+I6xqwhgY9m9bIkIFEBWMPOkQLluPXGwVp9B+MAI4=",
+        "lastModified": 1793620821,
+        "narHash": "sha256-ytchyDEEkv+ER5SaCsxr0Az2tscicKO+qNTbcTMmFhg=",
         "owner": "hhefesto",
         "repo": "mugen",
-        "rev": "39e5d0fc79bc2f8f26381bd167889dee3a601e1b",
+        "rev": "770d84f7008eeca2c07320a208b079e3f5f71900",
         "type": "github"
       },
       "original": {
