@@ -151,17 +151,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1792099862,
-        "narHash": "sha256-bs+jOGPJoV3HimR62oT1yoLmw3D+4WpqFDp+qLIX0/U=",
-        "owner": "hhefesto",
-        "repo": "bend2",
-        "rev": "977a2d982bd54ac2752f7bb356081d943ab6c405",
+        "lastModified": 1792703680,
+        "narHash": "sha256-gvCxPq10zVDOX1FAwzXM8g9Ny7dJqYeszrE190qOq44=",
+        "owner": "bendlang",
+        "repo": "bend",
+        "rev": "b8664b0a7ff36858b353fdbee77e41a3dd3548db",
         "type": "github"
       },
       "original": {
-        "owner": "hhefesto",
-        "ref": "ft-kernels",
-        "repo": "bend2",
+        "owner": "bendlang",
+        "repo": "bend",
         "type": "github"
       }
     },
@@ -923,11 +922,11 @@
         "uniichat": "uniichat"
       },
       "locked": {
-        "lastModified": 1792676868,
-        "narHash": "sha256-FVrDGgigynVfdvlb3oh96tw7Da8Ys0Ic6eob4mvJo9w=",
+        "lastModified": 1793625481,
+        "narHash": "sha256-cfMDxV1USwP91q3dY3EF822rB2YwCNEqlQzKolbYWMQ=",
         "owner": "hhefesto",
         "repo": "mugen",
-        "rev": "b03f16c1346a3d75ac23f891a6f9446c17e8452c",
+        "rev": "b21b35a6983a5238426e6ebf5d23372b8390b91a",
         "type": "github"
       },
       "original": {
@@ -944,11 +943,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1793623007,
-        "narHash": "sha256-xD4jRyW4scdavZ7c1o/WBQxUPI/4otW1PtEieDz1z2A=",
+        "lastModified": 1793625509,
+        "narHash": "sha256-Lsan4qQlYGaOl4eGcPt5duSGfQNkQNYLMJJO1E7DPxw=",
         "ref": "refs/heads/master",
-        "rev": "377e04c34cde6d6a59f1322ab19ba1047518b505",
-        "revCount": 8,
+        "rev": "862ccae35e49e2d8f9cc17f5462dbe71ad9dce20",
+        "revCount": 9,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/mugen-web"
       },
@@ -960,11 +959,11 @@
     "mugen_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1793620821,
-        "narHash": "sha256-ytchyDEEkv+ER5SaCsxr0Az2tscicKO+qNTbcTMmFhg=",
+        "lastModified": 1793625481,
+        "narHash": "sha256-cfMDxV1USwP91q3dY3EF822rB2YwCNEqlQzKolbYWMQ=",
         "owner": "hhefesto",
         "repo": "mugen",
-        "rev": "770d84f7008eeca2c07320a208b079e3f5f71900",
+        "rev": "b21b35a6983a5238426e6ebf5d23372b8390b91a",
         "type": "github"
       },
       "original": {
