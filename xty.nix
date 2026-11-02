@@ -63,4 +63,12 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJcDIsto/6GS7XwTl+uVo4ABeRlRjDwAU0HHy8irqLaB hhefesto@olimpo"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBAolzCtF1t8rPKSRzvREQPBUjxRAi5medog8Ebi0n/G hhefesto@delfos"
   ];
+
+  # olimpo's reverse tunnel for mugen-web (services.mugen-web.origin.tunnel
+  # there) logs in as hhefesto with this key, from a system unit with no
+  # ssh agent: the key may only open 127.0.0.1:3008 here (no shell, no pty,
+  # no other forward).
+  users.users.hhefesto.openssh.authorizedKeys.keys = [
+    ''restrict,port-forwarding,permitlisten="127.0.0.1:3008" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBAolzCtF1t8rPKSRzvREQPBUjxRAi5medog8Ebi0n/G mugen-web tunnel from olimpo''
+  ];
 }
