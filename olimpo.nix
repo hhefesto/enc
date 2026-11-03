@@ -135,6 +135,24 @@
     };
   };
 
+  # --- The sound stays on the BenQ through the screensaver -----------------
+
+  # When DPMS powers the BenQ off with the screensaver, its HDMI sink goes
+  # away and the default falls back to S/PDIF or the dock; an open Sound
+  # panel then keeps it there. audio-keep remembers the sink in use and puts
+  # it back when it returns (audio-keep.hs). Logs: journalctl --user -u audio-keep
+  systemd.user.services.audio-keep = {
+    description = "Put the sound back on the output it had before the screen blanked";
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+    after = [ "pipewire.service" "wireplumber.service" ];
+    serviceConfig = {
+      ExecStart = "${import ./audio-keep.nix { inherit pkgs; }}/bin/audio-keep ${pkgs.pipewire}/bin/pw-metadata ${pkgs.pipewire}/bin/pw-cli";
+      Restart = "always";
+      RestartSec = 5;
+    };
+  };
+
   # --- The iPhone, over Tailscale -------------------------------------------
 
   # The phone reaches olimpo through the tailnet only; nothing new opens to

@@ -22,6 +22,7 @@ Primary languages: **Nix, Haskell, Agda**. Strongly prefers functional, type-dri
 | `configuration.nix` | 7-line stub = core + workstation (imported by olimpo/delfos only). |
 | `home.nix` | home-manager for `hhefesto` (NixOS module, `useGlobalPkgs` + `useUserPackages`); seeds `~/.claude` hooks. |
 | `llm-transcript.hs` / `llm-transcript.nix` | Session-transcript renderer (Haskell + its derivation). |
+| `audio-keep.hs` / `audio-keep.nix` | olimpo's user service `audio-keep` (in `olimpo.nix`): puts the sound back on the sink it was on before the screen blanked (the BenQ's HDMI sink goes away under DPMS). `journalctl --user -u audio-keep`. |
 | `olimpo.nix` / `delfos.nix` / `xty.nix` + `hardware-configuration-*.nix` | Per-host. olimpo↔delfos share LAN ssh-ng binary caches; delfos has dynamic timezone; xty is the headless production server (62.238.6.4, fail2ban, keys-only SSH). |
 | `secrets/` | agenix: `secrets.nix` recipients + `user-password.age` (rotate: `secrets/rotate-user-password.sh`). |
 | `xmonad.hs`, `xmobarrc-olimpo`, `xmobarrc-delfos` | xmonad config; `@xmonadShortenLength@` substituted per host. `myTerminal = "myterm"` (tmux wrapper from `configuration-gui.nix`). |
