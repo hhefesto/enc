@@ -943,11 +943,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1793633205,
-        "narHash": "sha256-5njiabru1hdAyNXkEqlvlht6rW41fykHQV177kCnMho=",
+        "lastModified": 1793797879,
+        "narHash": "sha256-H5p/TUDURnoYplOkuecqgtlcsKBDJxOJGNMYFsSLLU0=",
         "ref": "refs/heads/master",
-        "rev": "161a6d3d47d621e2ba83d9cc8848273d6ea4d9a8",
-        "revCount": 10,
+        "rev": "993c422944636a1cb8d7cef8f47be7e96827492c",
+        "revCount": 11,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/mugen-web"
       },
