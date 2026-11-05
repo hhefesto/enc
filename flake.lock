@@ -1460,11 +1460,11 @@
         "nixpkgs-reflex": "nixpkgs-reflex_2"
       },
       "locked": {
-        "lastModified": 1792678081,
-        "narHash": "sha256-TMey4gqDZAUKS2n9VIdZAk77ro2+JJ7fsmB/rjUPS3Y=",
+        "lastModified": 1793905794,
+        "narHash": "sha256-ZkKQJYSR+W9Na+78aGiVsNzBnU6xhTmOQvkrSAeyDnU=",
         "owner": "hhefesto",
         "repo": "refl",
-        "rev": "727150600938154548eebe5dd0cbb6bf67264128",
+        "rev": "20e3802bd18f14e7bcc4ab4e83180b4072ffec7d",
         "type": "github"
       },
       "original": {
