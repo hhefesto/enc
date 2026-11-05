@@ -2,6 +2,9 @@
 {
   imports = [ ./hardware-configuration-xty.nix ];
 
+  # /boot is 253 MB: a deploy failed on 11-04 with it full of old kernels
+  boot.loader.systemd-boot.configurationLimit = 4;
+
   # Host concern: the production data directory was initialised with
   # PostgreSQL 16. Never bump without a migration plan (pre-deploy checks
   # assert this major).
