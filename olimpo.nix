@@ -97,6 +97,11 @@
 
   # mugen itself comes with Claude Code, in configuration-workstation.nix.
   environment.systemPackages = [
+    # wa-send: a WhatsApp message through this screen's Brave (wa-send.bend)
+    (import ./wa-send.nix {
+      inherit pkgs;
+      bend = inputs.bend2.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    })
     # `mu`: go to the tmux session where mugen runs. From the phone, an ssh
     # login lands in tmux "main" (configuration-core.nix); `mu` switches
     # that client to mugen's session (attaches, outside tmux).

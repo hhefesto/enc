@@ -146,6 +146,26 @@
     "bend2": {
       "inputs": {
         "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793708264,
+        "narHash": "sha256-nc1M5EKRw6k9xgIsHgsnjkSw/PjU7iD3mdr3OVC/yuI=",
+        "owner": "bendlang",
+        "repo": "bend",
+        "rev": "0ba4e5ec0d3c9e93d653883b9184488468040001",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bendlang",
+        "repo": "bend",
+        "type": "github"
+      }
+    },
+    "bend2_2": {
+      "inputs": {
+        "nixpkgs": [
           "mugen",
           "nixpkgs"
         ]
@@ -164,7 +184,7 @@
         "type": "github"
       }
     },
-    "bend2_2": {
+    "bend2_3": {
       "flake": false,
       "locked": {
         "lastModified": 1789677457,
@@ -917,7 +937,7 @@
     },
     "mugen": {
       "inputs": {
-        "bend2": "bend2",
+        "bend2": "bend2_2",
         "nixpkgs": "nixpkgs_9",
         "uniichat": "uniichat"
       },
@@ -1453,7 +1473,7 @@
     },
     "refl": {
       "inputs": {
-        "bend2": "bend2_2",
+        "bend2": "bend2_3",
         "flake-parts": "flake-parts_7",
         "haskell-flake": "haskell-flake_4",
         "nixpkgs": "nixpkgs_12",
@@ -1509,6 +1529,7 @@
       "inputs": {
         "aanalyzer-classic": "aanalyzer-classic",
         "agenix": "agenix",
+        "bend2": "bend2",
         "claude-code-nix": "claude-code-nix",
         "codex-cli-nix": "codex-cli-nix",
         "deploy-rs": "deploy-rs",

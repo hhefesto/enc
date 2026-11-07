@@ -41,6 +41,9 @@
     claude-code-nix.url = "github:sadjow/claude-code-nix";
     codex-cli-nix.url = "github:sadjow/codex-cli-nix";
     telomare.url = "git+ssh://git@github.com/Stand-In-Language/stand-in-language";
+    # Bend, for this repo's own tools (wa-send.bend)
+    bend2.url = "github:bendlang/bend";
+    bend2.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, flake-parts, nixpkgs, home-manager, deploy-rs, ... }:
@@ -607,6 +610,10 @@
         in {
           default = pkgs.linkFarm "all-hosts" entries;
           llm-transcript = import ./llm-transcript.nix { inherit pkgs; };
+          wa-send = import ./wa-send.nix {
+            inherit pkgs;
+            bend = inputs.bend2.packages.${pkgs.stdenv.hostPlatform.system}.default;
+          };
           delfos = hosts.delfos.config.system.build.toplevel;
           olimpo = hosts.olimpo.config.system.build.toplevel;
           xty = hosts.xty.config.system.build.toplevel;
