@@ -143,6 +143,22 @@
         "type": "github"
       }
     },
+    "bend-frp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793750795,
+        "narHash": "sha256-QkGNqUZo/eZKCw96S+VT9cVdZVk8LtebieEiBtJ6FGs=",
+        "owner": "hhefesto",
+        "repo": "bend-frp",
+        "rev": "95d1a827aa96697f096b4720c68567d5229b5275",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-frp",
+        "type": "github"
+      }
+    },
     "bend2": {
       "inputs": {
         "nixpkgs": [
@@ -935,6 +951,30 @@
         "type": "github"
       }
     },
+    "horas": {
+      "inputs": {
+        "bend-frp": "bend-frp",
+        "bend2": [
+          "bend2"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794333000,
+        "narHash": "sha256-+s39zJSeWEZmle/Y5dlhLZbrWyJWORuOqF9Bv4FMCEQ=",
+        "owner": "hhefesto",
+        "repo": "horas",
+        "rev": "ce7f037ca2642654e5ad7ec5671bff17d7045db5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "horas",
+        "type": "github"
+      }
+    },
     "mugen": {
       "inputs": {
         "bend2": "bend2_2",
@@ -1538,6 +1578,7 @@
         "docxty": "docxty",
         "flake-parts": "flake-parts_5",
         "home-manager": "home-manager_3",
+        "horas": "horas",
         "mugen": "mugen",
         "mugen-web": "mugen-web",
         "nixpkgs": "nixpkgs_11",

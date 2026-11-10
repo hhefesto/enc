@@ -44,6 +44,12 @@
     # Bend, for this repo's own tools (wa-send.bend)
     bend2.url = "github:bendlang/bend";
     bend2.inputs.nixpkgs.follows = "nixpkgs";
+    # horas: the calendar in Bend, one copy per machine (olimpo, delfos),
+    # joined over ssh and with Google Calendar. It follows this flake's
+    # nixpkgs and Bend, so one Bend builds wa-send and horas.
+    horas.url = "github:hhefesto/horas";
+    horas.inputs.nixpkgs.follows = "nixpkgs";
+    horas.inputs.bend2.follows = "bend2";
   };
 
   outputs = inputs@{ self, flake-parts, nixpkgs, home-manager, deploy-rs, ... }:

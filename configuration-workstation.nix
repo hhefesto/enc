@@ -66,6 +66,9 @@ in
     # mugen (無限): one chat that never ends, in the terminal, on Claude Code
     # (`mugen login` once) or the API (`mugen --api`); wherever Claude Code is.
     inputs.mugen.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # horas: the calendar, synced between machines over ssh and with Google
+    # Calendar (`horas login` once per machine, `horas sync` to join).
+    inputs.horas.packages.${pkgs.stdenv.hostPlatform.system}.default
     llm-transcript
     tesseract
     poppler-utils
