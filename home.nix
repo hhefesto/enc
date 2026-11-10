@@ -87,6 +87,19 @@ in
 
   programs.zsh.enable = true;
 
+  # hhefesto is a trusted Nix user, so this file's settings reach the
+  # daemon: extra-* adds to /etc/nix's lists (FlakeHub's, the other
+  # machine's store, lan-cache.nix), where a plain `substituters =` would
+  # replace them, as delfos's hand-made copy did until 2026-11-10. Don't
+  # set netrc-file here: Determinate needs its own /nix/var/determinate/netrc.
+  xdg.configFile."nix/nix.conf" = {
+    force = true;
+    text = ''
+      extra-substituters = https://cache.iog.io
+      extra-trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
+    '';
+  };
+
   # The bare binary: Spacemacs installs every elisp package itself.
   programs.emacs.enable = true;
 
