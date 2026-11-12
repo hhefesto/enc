@@ -982,11 +982,11 @@
         "uniichat": "uniichat"
       },
       "locked": {
-        "lastModified": 1794248531,
-        "narHash": "sha256-lu4/U6WcjD3n+0sD4YmfxeKPuVLqimNg+M1ERGViHYM=",
+        "lastModified": 1794497175,
+        "narHash": "sha256-f0xUsPfh5drdnAqZGcwqVBwHTNQ8ArkUjlMhtA6OEGU=",
         "owner": "hhefesto",
         "repo": "mugen",
-        "rev": "55c999344c0d96263c1357ae32861b5b83d0cbbd",
+        "rev": "403800a7685221f0a76067dd3ca14640e192996b",
         "type": "github"
       },
       "original": {
