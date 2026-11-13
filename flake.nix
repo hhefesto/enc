@@ -66,6 +66,9 @@
           imports = [ home-manager.nixosModules.home-manager ];
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          # A file home-manager would replace is renamed, not fatal: delfos
+          # had a plain ~/.spacemacs, and every activation there failed on it.
+          home-manager.backupFileExtension = "before-home-manager";
           home-manager.users.hhefesto = import ./home.nix;
           home-manager.extraSpecialArgs = {
             inherit (inputs) telomare;

@@ -587,7 +587,13 @@ before packages are loaded."
     ;; (setq direnv-always-show-summary nil)
     (setq direnv-use-faces-in-summary t)
     ;; Optional: add custom keybinding for holy-mode
-    (global-set-key (kbd "C-c d") 'direnv-update-environment))
+    (global-set-key (kbd "C-c d") 'direnv-update-environment)
+    ;; direnv-mode loads the environment of the selected window's buffer,
+    ;; which during find-file is still the previous one, so a new buffer's
+    ;; mode hooks run with Emacs's own PATH: flycheck-haskell finds no
+    ;; runghc, and its error stops the hooks before lsp starts. Load the
+    ;; file's environment first.
+    (add-hook 'prog-mode-hook #'direnv-update-environment -90))
 
   (global-set-key [control] #'ignore)
   (when (bound-and-true-p hybrid-mode)
