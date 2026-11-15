@@ -9,11 +9,11 @@
         "purescript-overlay": "purescript-overlay"
       },
       "locked": {
-        "lastModified": 1794557328,
-        "narHash": "sha256-n8bfgdrLFi2DG8T3UJ7BKGkXGg170MKZlAYynoXgM88=",
+        "lastModified": 1794624444,
+        "narHash": "sha256-o1Fy6+FK5aNpUaxZWBvJCxpaeVOYJNJTwNLNcYYG23k=",
         "ref": "headless-backend",
-        "rev": "c6b4bed1f27486a820f654c3d576144140e365ea",
-        "revCount": 1818,
+        "rev": "f5b22e9fe92419a8046fd55e31b0666ced866d1e",
+        "revCount": 1821,
         "type": "git",
         "url": "ssh://git@github.com/rdataa/aanalyzer-classic"
       },
@@ -166,11 +166,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794572485,
-        "narHash": "sha256-yU2n2jav8ZxUneV/WCJbhe5sr8BIxAiNTl3oQ3EFRxU=",
+        "lastModified": 1794682988,
+        "narHash": "sha256-9x/0tizq1exCQxTec4xMDOj1biv5b2R6kWIi73P87zM=",
         "owner": "bendlang",
         "repo": "bend",
-        "rev": "38103b3d46425026eff2d16bef93684967bee992",
+        "rev": "f0cf0a7c573145501981c44d9c33e326185f008e",
         "type": "github"
       },
       "original": {
@@ -916,11 +916,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794278858,
-        "narHash": "sha256-rkrJwLgLSHBnXfgoSKIDa+2LLGdTqynsV3GAxOTGhUU=",
+        "lastModified": 1794715309,
+        "narHash": "sha256-awkBBs5ctFKgEYjpNGpi3t/VqF589n5EWfdinRb2gNI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "82ce401aa350502897c3f2e85f384d61cd3b0b6d",
+        "rev": "a1293da7dd8e497e08d26173f97e2976b36a31ea",
         "type": "github"
       },
       "original": {
@@ -995,11 +995,11 @@
         "uniichat": "uniichat"
       },
       "locked": {
-        "lastModified": 1794497175,
-        "narHash": "sha256-f0xUsPfh5drdnAqZGcwqVBwHTNQ8ArkUjlMhtA6OEGU=",
+        "lastModified": 1794763179,
+        "narHash": "sha256-D+WDAFL/PNbz+rLwmMqaGtsILy6AsG15amYWtvXbjFI=",
         "owner": "hhefesto",
         "repo": "mugen",
-        "rev": "403800a7685221f0a76067dd3ca14640e192996b",
+        "rev": "4dc824bc58908d173f3bc6221965ca44977d88ff",
         "type": "github"
       },
       "original": {
@@ -1300,11 +1300,11 @@
     },
     "nixpkgs_11": {
       "locked": {
-        "lastModified": 1794386569,
-        "narHash": "sha256-x9sADJvoVG0L6RejZB+/BB4YiGZFBZrfTlhF4uBq1tQ=",
+        "lastModified": 1794537146,
+        "narHash": "sha256-Wpz/7x/YWnDIBu7yj6ixe8j6fIMsidd9Y+o1PqPF3iM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
+        "rev": "d5cc6833999746cffdfe0598f7bc801a57b887a9",
         "type": "github"
       },
       "original": {
@@ -1727,11 +1727,11 @@
         "haskell-pkgs": "haskell-pkgs"
       },
       "locked": {
-        "lastModified": 1794400937,
-        "narHash": "sha256-Rh9G+KGkkTS/jzZSOiKJv9zYUnlc8xJdz0DLg4Qa5FE=",
+        "lastModified": 1794628463,
+        "narHash": "sha256-yGKp9yTlyNqxG4z2YBsQVlmGR4RRzY84xX6Gk5Ek2VM=",
         "ref": "refs/heads/master",
-        "rev": "e86fbbfb499d80fcd516db57290c576ee9b02372",
-        "revCount": 995,
+        "rev": "281c00cb5d30639a62b2c36e8bffb365fab1456c",
+        "revCount": 1001,
         "type": "git",
         "url": "ssh://git@github.com/Stand-In-Language/stand-in-language"
       },
