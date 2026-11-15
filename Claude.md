@@ -54,7 +54,7 @@ Deploy: `nix run .#deploy-xty` (docxty backup health check → pure checks → l
 
 `nixpkgs` (nixos-unstable), `flake-parts`, `deploy-rs`, `home-manager` (release-25.11), `agenix`, `docxty`/`wedding-page`/`directo`/`refl` (project repos; `refl` keeps its own nixpkgs pins for the provers, no `follows`), and an Olimpo-local `path:/home/hhefesto/src/xpsoasis` input. Restore xpsOasis to its Git branch after the single-backend changes are committed; never deploy xty while path-pinned. Other inputs: `claude-code-nix`, `telomare`.
 
-Binary caches: `hercules-ci.cachix.org`, `telomare.cachix.org`, `nixcache.reflex-frp.org`, `claude-code.cachix.org`.
+Binary caches: `hercules-ci.cachix.org`, `telomare.cachix.org`, `claude-code.cachix.org`, `codex-cli.cachix.org`. (`nixcache.reflex-frp.org` was removed on 2026-11-15, the user: "Remove the reflex cache, I don't think it has ever worked.")
 
 `nixpkgs.config.allowUnfree = true`.
 
