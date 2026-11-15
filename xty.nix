@@ -42,6 +42,13 @@
   services.openssh.settings = {
     PermitRootLogin = "prohibit-password";
     PasswordAuthentication = false;
+    # A client that stops answering is dropped after 45 s (3 probes, 15 s
+    # apart) instead of TCP keepalive's ~2 h.  A dead session of olimpo's
+    # mugen-web tunnel (below) kept 127.0.0.1:3008 bound here for ~2h10m on
+    # 11-12, 11-13 and 11-14, refusing every reconnect, so mugen-web's API
+    # was down that long.
+    ClientAliveInterval = 15;
+    ClientAliveCountMax = 3;
   };
 
   services.fail2ban = {
