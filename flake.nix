@@ -28,6 +28,11 @@
     # backend runs beside mugen on olimpo, xty serves the site and passes
     # /api/ through olimpo's reverse tunnel.
     mugen-web.url = "git+ssh://git@github.com/hhefesto/mugen-web";
+    # El cubo de Edgar (elcubodeedgar.hhefesto.dev): the page, its solver
+    # compiled to JavaScript for the visitor's own device, and its tables,
+    # all static files that xty serves. It keeps its own nixpkgs and Bend
+    # pins (bend-frp's): no `follows`.
+    elcubodeedgar.url = "github:hhefesto/elcubodeedgar";
     docxty.url = "git+ssh://git@github.com/hhefesto/docxty";
     wedding-page.url = "github:hhefesto/wedding-website";
     directo.url = "git+ssh://git@github.com/hhefesto/directo";
@@ -219,28 +224,56 @@
           };
 
           # El cubo de Edgar, Edgar's Rubik's cube (elcubodeedgar.hhefesto.dev,
-          # github:hhefesto/elcubodeedgar, ~/src/elcubodeedgar on delfos): its
-          # server, the page and the
-          # solver, runs on delfos as a user unit and reaches here through
-          # delfos's reverse tunnel on 127.0.0.1:3010 (xty.nix's key for it).
-          # The server solves one cube at a time on all 8 of delfos's cores,
-          # so /api/ is limited per visitor (Cloudflare's CF-Connecting-IP).
-          services.nginx.appendHttpConfig = ''
-            limit_req_zone $http_cf_connecting_ip zone=cube_api:1m rate=10r/m;
-          '';
-          services.nginx.virtualHosts."elcubodeedgar.hhefesto.dev" = {
-            enableACME = true;
-            forceSSL = true;
-            locations."/".proxyPass = "http://127.0.0.1:3010";
-            locations."/api/" = {
-              proxyPass = "http://127.0.0.1:3010";
-              extraConfig = ''
-                limit_req zone=cube_api burst=5 nodelay;
-                limit_req_status 429;
-                proxy_read_timeout 300s;
+          # github:hhefesto/elcubodeedgar): static files, served here. The
+          # visitor's own device solves (Bend compiled to JavaScript, a Web
+          # Worker per core, the tables fetched once from t/), so the site
+          # does not depend on delfos. The workers share the tables in a
+          # SharedArrayBuffer, which a browser gives only to a cross-origin
+          # isolated page: hence the COOP and COEP headers on every answer.
+          # The tables are kept brotli'd (t/*.br, sent with Content-Encoding
+          # br; the page falls back on t/*.gz). The files sit in the nix
+          # store with mtime 1, so no ETag or If-Modified-Since: a changed
+          # file must never answer 304. No /api/: the site asks no server (a
+          # browser that cannot share memory between its workers gets a
+          # quick way on its own device; the user, 11-16: "I don't want
+          # Edgar's site to use delfos at all").
+          services.nginx.virtualHosts."elcubodeedgar.hhefesto.dev" =
+            let
+              isolated = ''
+                add_header Cross-Origin-Opener-Policy same-origin always;
+                add_header Cross-Origin-Embedder-Policy require-corp always;
+                add_header Cross-Origin-Resource-Policy same-origin always;
+                add_header X-Content-Type-Options nosniff always;
               '';
+            in
+            {
+              enableACME = true;
+              forceSSL = true;
+              root = "${inputs.elcubodeedgar.packages.x86_64-linux.www}";
+              extraConfig = ''
+                etag off;
+                if_modified_since off;
+              ''
+              + isolated;
+              locations."/".extraConfig = "expires 5m;";
+              locations."= /".extraConfig = "expires -1;";
+              locations."= /index.html".extraConfig = "expires -1;";
+              locations."= /tables.json".extraConfig = "expires -1;";
+              # named by their contents: kept for good
+              locations."/t/".extraConfig = ''
+                expires max;
+                gzip off;
+              ''
+              + isolated;
+              locations."~ ^/t/.+\\.br$".extraConfig = ''
+                types { }
+                default_type application/octet-stream;
+                expires max;
+                gzip off;
+                add_header Content-Encoding br always;
+              ''
+              + isolated;
             };
-          };
           # its first address, sent on to the new one (the user, 11-15:
           # "instead of edgarsrubikscube, name it elcubodeedgar")
           services.nginx.virtualHosts."edgarsrubicscube.hhefesto.dev" = {
