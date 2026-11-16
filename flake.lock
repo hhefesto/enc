@@ -541,11 +541,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794848280,
-        "narHash": "sha256-TJPHcIxL6F1hbqFasvkzY5sTxEau1makklBya8iUwXI=",
+        "lastModified": 1794851798,
+        "narHash": "sha256-mPmwPCIwRbMJuT9Mz5ANqo/Uwl4mwjBWN4tsXsGRuVA=",
         "owner": "hhefesto",
         "repo": "elcubodeedgar",
-        "rev": "0390e54f76b5e59557f12ab0344e4e99b813fac7",
+        "rev": "5e2a3077b96be522113bf0015c57f69c4283670d",
         "type": "github"
       },
       "original": {
