@@ -541,11 +541,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794858219,
-        "narHash": "sha256-IN21GKKrzeYaMW1e1mDuBpIiXPwBC8YJSZHMZgtE9NI=",
+        "lastModified": 1794859741,
+        "narHash": "sha256-4LvxYTLUlrz/0rXheCc1XOKsR6JsC7fKQhkS/4JeHnk=",
         "owner": "hhefesto",
         "repo": "elcubodeedgar",
-        "rev": "ae5f6a55b7d9a647cc7cfee6ed5490039b1bfa06",
+        "rev": "72a0a8d937c920bf2aff266b6219d10dead468a3",
         "type": "github"
       },
       "original": {
@@ -1081,11 +1081,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1794833693,
-        "narHash": "sha256-An0bkMJtjpyq3gVLCY75Eb3PBBVNwMDXDhd7CHyYx0U=",
+        "lastModified": 1794859449,
+        "narHash": "sha256-E9Zy5FoVS/uEBbJGFPS9sD/OmRbpJ34A2EC8MzkIy5s=",
         "ref": "refs/heads/master",
-        "rev": "fc74820d209debd6d45315cbd53410ea0b19ef95",
-        "revCount": 14,
+        "rev": "c25a69c1be14f4b8fcc68c06180e3f92bd181e7b",
+        "revCount": 15,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/mugen-web"
       },
