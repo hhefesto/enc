@@ -80,5 +80,9 @@
   # no other forward).
   users.users.hhefesto.openssh.authorizedKeys.keys = [
     ''restrict,port-forwarding,permitlisten="127.0.0.1:3008" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBAolzCtF1t8rPKSRzvREQPBUjxRAi5medog8Ebi0n/G mugen-web tunnel from olimpo''
+    # delfos's reverse tunnel for Edgar's Rubik's cube (flake.nix's
+    # edgarsrubicscube.hhefesto.dev): its own key, which may only open
+    # 127.0.0.1:3010 here
+    ''restrict,port-forwarding,permitlisten="127.0.0.1:3010" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHk8gG5v8N/jBuPj6pbEoY4Pf+aHebwEsBx+Jfet1cxO edgarsrubicscube tunnel from delfos''
   ];
 }

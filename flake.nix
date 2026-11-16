@@ -218,6 +218,29 @@
             serverName = "mugen.hhefesto.dev";
           };
 
+          # Edgar's Rubik's cube (edgarsrubicscube.hhefesto.dev, the repo
+          # ~/src/edgarsrubicscube on delfos): its server, the page and the
+          # solver, runs on delfos as a user unit and reaches here through
+          # delfos's reverse tunnel on 127.0.0.1:3010 (xty.nix's key for it).
+          # The server solves one cube at a time on all 8 of delfos's cores,
+          # so /api/ is limited per visitor (Cloudflare's CF-Connecting-IP).
+          services.nginx.appendHttpConfig = ''
+            limit_req_zone $http_cf_connecting_ip zone=cube_api:1m rate=10r/m;
+          '';
+          services.nginx.virtualHosts."edgarsrubicscube.hhefesto.dev" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/".proxyPass = "http://127.0.0.1:3010";
+            locations."/api/" = {
+              proxyPass = "http://127.0.0.1:3010";
+              extraConfig = ''
+                limit_req zone=cube_api burst=5 nodelay;
+                limit_req_status 429;
+                proxy_read_timeout 300s;
+              '';
+            };
+          };
+
           # All four hhefesto.dev certificates were issued on 2026-09-19 during
           # the first switch (records existed and resolved beforehand). If a
           # vhost is ever added before its DNS record, guard its order unit
