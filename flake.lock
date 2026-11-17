@@ -1027,11 +1027,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794333000,
-        "narHash": "sha256-+s39zJSeWEZmle/Y5dlhLZbrWyJWORuOqF9Bv4FMCEQ=",
+        "lastModified": 1794939113,
+        "narHash": "sha256-15r+/peJXgPfniudXm9G7br7JKDjEcPXcnq0U3PIwD0=",
         "owner": "hhefesto",
         "repo": "horas",
-        "rev": "ce7f037ca2642654e5ad7ec5671bff17d7045db5",
+        "rev": "080fd2c4b38ead4744cbcb54b88b68a0db6f8949",
         "type": "github"
       },
       "original": {
