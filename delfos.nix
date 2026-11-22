@@ -35,4 +35,16 @@
       esac
     '';
   }];
+
+  # olimpo's ~/.ssh/id_ed25519 (no passphrase) logs in as root: enc-update
+  # (olimpo.nix) switches delfos from olimpo, from a unit with no ssh agent
+  users.users.root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH2Ttj29zyClCr8pSobzAIJVcsEuL4GsPY7+aiK5eaA1" ];
+
+  # enc-update: delfos is updated by olimpo (olimpo.nix), only when idle and
+  # on mains power
+  services.enc-update = {
+    enable = true;
+    acRequired = true;
+    health = [ "unit sshd" "unit nix-daemon" "unit display-manager" ];
+  };
 }

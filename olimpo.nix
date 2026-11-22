@@ -137,4 +137,29 @@
   networking.firewall.interfaces.tailscale0.allowedUDPPortRanges = [
     { from = 60000; to = 61000; }
   ];
+
+  # enc-update (enc-update.nix, enc-update.bend): olimpo is the builder. It
+  # updates the system inputs only (nixpkgs and the like; the project inputs
+  # stay where you pinned them), refuses an update that would build GHC, a
+  # kernel or a browser, and switches olimpo, then xty (delfos, below, once
+  # it takes the key), each only while idle, checking each and switching it
+  # back if it broke.
+  services.enc-update = {
+    enable = true;
+    builder = true;
+    loadMax = "4";
+    idleMinutes = 30;
+    # delfos joins once root there takes olimpo's key (delfos.nix sets it;
+    # it needs one switch on delfos itself, `ns` there): till then a cycle
+    # that can't reach it would never finish, so it isn't a target yet
+    targets = [ "olimpo local" "xty root@62.238.6.4" ];
+    inputs = [ "nixpkgs" "home-manager" "agenix" "determinate" "deploy-rs" "flake-parts" "claude-code-nix" "codex-cli-nix" ];
+    forbid = [ "ghc" "rustc" "linux" "gcc" "glibc" "llvm" "firefox-unwrapped" "chromium-unwrapped" "libreoffice" "qtwebengine" "electron" ];
+    gates.xty = [ "pre-deploy-xty-live" ];
+    # every machine updated and well: the lock fast-forwards GitHub's master
+    # (a master that moved meanwhile refuses it; the next cycle starts from
+    # it), so a `ns` from ~/src/enc after a `git pull` keeps the update
+    push = "master";
+    health = [ "unit sshd" "unit nix-daemon" "unit display-manager" "unit tailscaled" ];
+  };
 }

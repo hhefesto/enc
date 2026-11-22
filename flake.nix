@@ -292,7 +292,7 @@
 
         mkHost = { hostModules, extraSpecialArgs ? {} }: nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ inputs.determinate.nixosModules.default ] ++ hostModules;
+          modules = [ inputs.determinate.nixosModules.default (import ./enc-update.nix { bend = inputs.bend2.packages.${system}.default; }) ] ++ hostModules;
           specialArgs = { inherit inputs; } // extraSpecialArgs;
         };
       in {

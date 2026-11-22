@@ -72,6 +72,9 @@
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJcDIsto/6GS7XwTl+uVo4ABeRlRjDwAU0HHy8irqLaB hhefesto@olimpo"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBAolzCtF1t8rPKSRzvREQPBUjxRAi5medog8Ebi0n/G hhefesto@delfos"
+    # olimpo's ~/.ssh/id_ed25519 (no passphrase): enc-update's ssh and nix
+    # copy, which run from a system unit with no ssh agent (enc-update.nix)
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH2Ttj29zyClCr8pSobzAIJVcsEuL4GsPY7+aiK5eaA1"
   ];
 
   # olimpo's reverse tunnel for mugen-web (services.mugen-web.origin.tunnel
@@ -81,4 +84,28 @@
   users.users.hhefesto.openssh.authorizedKeys.keys = [
     ''restrict,port-forwarding,permitlisten="127.0.0.1:3008" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBAolzCtF1t8rPKSRzvREQPBUjxRAi5medog8Ebi0n/G mugen-web tunnel from olimpo''
   ];
+
+  # enc-update: xty is updated by olimpo (olimpo.nix), last, only from 3 to
+  # 6 in the morning and quiet; every site checked on xty itself before and
+  # after its switch (a site that stops answering switches it back)
+  services.enc-update = {
+    enable = true;
+    loadMax = "1";
+    idleMinutes = 30;
+    hours = { from = 3; to = 6; };
+    health = [
+      "unit sshd" "unit nginx" "unit postgresql" "unit fail2ban"
+      "unit directo-backend" "unit expedientes-backend" "unit xpsoasis-backend"
+      "unit aaspectra" "unit wedding-backend" "unit refl"
+      "http directo https://directo.hhefesto.dev directo.hhefesto.dev:443:127.0.0.1"
+      "http docxty https://docxty.net docxty.net:443:127.0.0.1"
+      "http elcubodeedgar https://elcubodeedgar.hhefesto.dev elcubodeedgar.hhefesto.dev:443:127.0.0.1"
+      "http mugen https://mugen.hhefesto.dev mugen.hhefesto.dev:443:127.0.0.1"
+      "http refl https://refl.hhefesto.dev refl.hhefesto.dev:443:127.0.0.1"
+      "http xpsoasis https://xpsoasis.hhefesto.dev xpsoasis.hhefesto.dev:443:127.0.0.1"
+      "http aaspectra https://aaspectra.xpsoasis.hhefesto.dev aaspectra.xpsoasis.hhefesto.dev:443:127.0.0.1"
+      "http xty-y-dan https://xty-y-dan.net xty-y-dan.net:443:127.0.0.1"
+      "http edgarsrubicscube https://edgarsrubicscube.hhefesto.dev edgarsrubicscube.hhefesto.dev:443:127.0.0.1"
+    ];
+  };
 }
