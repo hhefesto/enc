@@ -72,6 +72,9 @@
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJcDIsto/6GS7XwTl+uVo4ABeRlRjDwAU0HHy8irqLaB hhefesto@olimpo"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBAolzCtF1t8rPKSRzvREQPBUjxRAi5medog8Ebi0n/G hhefesto@delfos"
+    # olimpo's ~/.ssh/id_ed25519 (no passphrase): enc-update's ssh and nix
+    # copy, which run from a system unit with no ssh agent (enc-update.nix)
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH2Ttj29zyClCr8pSobzAIJVcsEuL4GsPY7+aiK5eaA1"
   ];
 
   # olimpo's reverse tunnel for mugen-web (services.mugen-web.origin.tunnel
