@@ -127,8 +127,22 @@ in
   # the same route the xmonad OCR binding takes. (copy-mode, not
   # copy-mode-vi -- programs.tmux.keyMode is emacs.) Remote hosts are
   # covered by set-clipboard/OSC 52 in configuration-core.nix.
-  programs.tmux.extraConfig = ''
-    bind -T copy-mode M-w send -X copy-pipe-and-cancel "${pkgs.xclip}/bin/xclip -selection clipboard"
+  #
+  # A copy made over ssh (mugen on olimpo, run from delfos's terminal: a
+  # drag over the chat, or a yank in olimpo's tmux) comes back as OSC 52:
+  # olimpo's tmux sends it to its client, this host's tmux. tmux keeps it in
+  # a buffer and passes it on, but gnome-terminal (VTE) drops OSC 52, so it
+  # never reached the clipboard (the user, 11-21: "I cannot copy paste"):
+  # pane-set-clipboard puts each one on X's clipboard too. copy-command does
+  # the same for tmux's own copies that name no command (a mouse drag in
+  # copy-mode).
+  programs.tmux.extraConfig = let
+    xclip = "${pkgs.xclip}/bin/xclip -selection clipboard";
+    tmux = "${config.programs.tmux.package}/bin/tmux";
+  in ''
+    bind -T copy-mode M-w send -X copy-pipe-and-cancel "${xclip}"
+    set -s copy-command "${xclip}"
+    set-hook -g pane-set-clipboard { run-shell -b '${tmux} save-buffer - | DISPLAY=''${DISPLAY:-:0} ${xclip} -i >/dev/null 2>&1' }
   '';
 
   # A tmux pane keeps the environment of the shell that made it, and myterm
