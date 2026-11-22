@@ -24,11 +24,7 @@
     # terminal. Like Refl, it keeps its own nixpkgs and Bend 2 pins: no
     # `follows`. Its flake also gives Emacs M-x mugen (packages.emacs-mugen,
     # linked into ~/.local/share/mugen-emacs by home.nix).
-    # For now the local branch emacs-mode (0.24.0: M-x mugen, Shift-Tab's
-    # velocity, the speed on the status line), not pushed yet: this builds
-    # only where ~/src/mugen has that branch (olimpo). Once it is on GitHub,
-    # back to "github:hhefesto/mugen" and `nix flake update mugen`.
-    mugen.url = "git+file:///home/hhefesto/src/mugen?ref=emacs-mode";
+    mugen.url = "github:hhefesto/mugen";
     # mugen's chat in a browser, and mugen's page (mugen.hhefesto.dev): the
     # backend runs beside mugen on olimpo, xty serves the site and passes
     # /api/ through olimpo's reverse tunnel.

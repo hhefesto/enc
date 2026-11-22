@@ -1452,16 +1452,15 @@
       "locked": {
         "lastModified": 1795331904,
         "narHash": "sha256-UiVOTYiMrjPDcnlhqb5NyOiZ9w5DOvxs+4w+E7VraCI=",
-        "ref": "emacs-mode",
+        "owner": "hhefesto",
+        "repo": "mugen",
         "rev": "a97b7e87168fb184b343f7eda539af355533344b",
-        "revCount": 56,
-        "type": "git",
-        "url": "file:///home/hhefesto/src/mugen"
+        "type": "github"
       },
       "original": {
-        "ref": "emacs-mode",
-        "type": "git",
-        "url": "file:///home/hhefesto/src/mugen"
+        "owner": "hhefesto",
+        "repo": "mugen",
+        "type": "github"
       }
     },
     "mugen-web": {
