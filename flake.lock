@@ -1124,17 +1124,17 @@
         "nixpkgs": "nixpkgs_12"
       },
       "locked": {
-        "lastModified": 1795324811,
-        "narHash": "sha256-08wsyuJBhCNouRckZ1kjyM9PhrwEUIkJrHvQZbjGabk=",
+        "lastModified": 1795326609,
+        "narHash": "sha256-VSb/ozFDSysrnI8B5P5DOd7xrVY++htvgcbbg5NVMpY=",
         "ref": "refs/heads/master",
-        "rev": "993dbb608b1fc13e0786b179cf47d1ec91b1aa29",
-        "revCount": 42,
+        "rev": "92d531a67085a3a1617261ccd25cba68ea485efe",
+        "revCount": 43,
         "type": "git",
-        "url": "ssh://git@github.com/hhefesto/mugen-web"
+        "url": "ssh://git@github.com/hhefesto/mugen-app"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@github.com/hhefesto/mugen-web"
+        "url": "ssh://git@github.com/hhefesto/mugen-app"
       }
     },
     "mugen_2": {

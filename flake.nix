@@ -27,7 +27,7 @@
     # mugen's chat in a browser, and mugen's page (mugen.hhefesto.dev): the
     # backend runs beside mugen on olimpo, xty serves the site and passes
     # /api/ through olimpo's reverse tunnel.
-    mugen-web.url = "git+ssh://git@github.com/hhefesto/mugen-web";
+    mugen-web.url = "git+ssh://git@github.com/hhefesto/mugen-app";
     # El cubo de Edgar (elcubodeedgar.hhefesto.dev): the page, its solver
     # compiled to JavaScript for the visitor's own device, and its tables,
     # all static files that xty serves. It keeps its own nixpkgs and Bend

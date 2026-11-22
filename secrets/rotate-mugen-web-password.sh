@@ -20,7 +20,7 @@ for r in "${recipients[@]}"; do
 done
 
 mw=(mugen-web)
-command -v mugen-web > /dev/null || mw=(nix run "git+ssh://git@github.com/hhefesto/mugen-web" --)
+command -v mugen-web > /dev/null || mw=(nix run "git+ssh://git@github.com/hhefesto/mugen-app" --)
 
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
