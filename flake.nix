@@ -22,8 +22,13 @@
     refl.url = "github:hhefesto/refl";
     # mugen (無限): UniiChat in Bend 2, one chat that never ends, in the
     # terminal. Like Refl, it keeps its own nixpkgs and Bend 2 pins: no
-    # `follows`.
-    mugen.url = "github:hhefesto/mugen";
+    # `follows`. Its flake also gives Emacs M-x mugen (packages.emacs-mugen,
+    # linked into ~/.local/share/mugen-emacs by home.nix).
+    # For now the local branch emacs-mode (0.24.0: M-x mugen, Shift-Tab's
+    # velocity, the speed on the status line), not pushed yet: this builds
+    # only where ~/src/mugen has that branch (olimpo). Once it is on GitHub,
+    # back to "github:hhefesto/mugen" and `nix flake update mugen`.
+    mugen.url = "git+file:///home/hhefesto/src/mugen?ref=emacs-mode";
     # mugen's chat in a browser, and mugen's page (mugen.hhefesto.dev): the
     # backend runs beside mugen on olimpo, xty serves the site and passes
     # /api/ through olimpo's reverse tunnel.
@@ -76,7 +81,7 @@
           home-manager.backupFileExtension = "before-home-manager";
           home-manager.users.hhefesto = import ./home.nix;
           home-manager.extraSpecialArgs = {
-            inherit (inputs) telomare;
+            inherit (inputs) telomare mugen;
             inherit xmobarrc;
           };
         };

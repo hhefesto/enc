@@ -143,6 +143,126 @@
         "type": "github"
       }
     },
+    "bend-bcrypt": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-bcrypt",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330357,
+        "narHash": "sha256-sqie1i6cAHdjmXadpvGJzTA99A4XlFhdDx/AUva/FOk=",
+        "owner": "hhefesto",
+        "repo": "bend-bcrypt",
+        "rev": "f3f8fa46c93dc49e71b45f35eee81f5fcd6eb6f6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-bcrypt",
+        "type": "github"
+      }
+    },
+    "bend-bucket": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-bucket",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330338,
+        "narHash": "sha256-k2FH9llXr+dOnw7r0N2hhoDU7gdaKgFK2NDYaPH9K5c=",
+        "owner": "hhefesto",
+        "repo": "bend-bucket",
+        "rev": "6888a0688be7069d81789d355b0e044f45d3b039",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-bucket",
+        "type": "github"
+      }
+    },
+    "bend-entropy": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-entropy",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330335,
+        "narHash": "sha256-QD+r3uy9neW11OoVhP7GdC935hdl9SU6y3XMjuOnGMI=",
+        "owner": "hhefesto",
+        "repo": "bend-entropy",
+        "rev": "9a23c7574222eca6ee2f91117a43424e24f57bce",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-entropy",
+        "type": "github"
+      }
+    },
+    "bend-files": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "bend-text": [
+          "mugen-web",
+          "bend-text"
+        ],
+        "bend-time": [
+          "mugen-web",
+          "bend-time"
+        ],
+        "bend-wire": [
+          "mugen-web",
+          "bend-wire"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-files",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330459,
+        "narHash": "sha256-MzHMTX8PAqpbN+5nogkfql9B5mfWWaOANzYAzcxQ7Sc=",
+        "owner": "hhefesto",
+        "repo": "bend-files",
+        "rev": "62ba4378a6afdcf83e3270777490baae90a70b37",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-files",
+        "type": "github"
+      }
+    },
     "bend-frp": {
       "inputs": {
         "bend2": "bend2_2",
@@ -194,6 +314,234 @@
       "original": {
         "owner": "hhefesto",
         "repo": "bend-frp",
+        "type": "github"
+      }
+    },
+    "bend-json": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-json",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330354,
+        "narHash": "sha256-X7n2NTMLMSVlUlWakLXKd7inDqsxtmcI4xxY48Shcao=",
+        "owner": "hhefesto",
+        "repo": "bend-json",
+        "rev": "e6ce41dafa3eb3586769b3ceec4f9656d8f9a36d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-json",
+        "type": "github"
+      }
+    },
+    "bend-md": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "bend-text": [
+          "mugen-web",
+          "bend-text"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-md",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330446,
+        "narHash": "sha256-476MPxhGedCtTVbrqvNOSZxy0/iVKXYWu2xEbIHKJtE=",
+        "owner": "hhefesto",
+        "repo": "bend-md",
+        "rev": "543188ef9813f0f481ba906ec20b0207b04c774f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-md",
+        "type": "github"
+      }
+    },
+    "bend-radix": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-radix",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330327,
+        "narHash": "sha256-3JCTL+2+RLxF6E9/Wfu2Pf0bIKqk/ODP1IdsLy+bgb0=",
+        "owner": "hhefesto",
+        "repo": "bend-radix",
+        "rev": "3f3ef7cc30614dd94e427d4929e5192c2fc2aecc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-radix",
+        "type": "github"
+      }
+    },
+    "bend-route": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "bend-json": [
+          "mugen-web",
+          "bend-json"
+        ],
+        "bend-wire": [
+          "mugen-web",
+          "bend-wire"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-route",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330453,
+        "narHash": "sha256-Q+tpcoiCK+MgBg49sxtNO9X1wIvrAFeUlJwMXqdQfD4=",
+        "owner": "hhefesto",
+        "repo": "bend-route",
+        "rev": "e51238b29354db554ca349e941fb1a58e560e0c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-route",
+        "type": "github"
+      }
+    },
+    "bend-sha2": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-sha2",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330332,
+        "narHash": "sha256-6V5OYa9ahUdiKB83TkwNcl3fglK8aVRRT/1SP51BjjE=",
+        "owner": "hhefesto",
+        "repo": "bend-sha2",
+        "rev": "7dbcc170f399a4818bfeebacc4feb8efa60012c1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-sha2",
+        "type": "github"
+      }
+    },
+    "bend-text": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-text",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330321,
+        "narHash": "sha256-mT2Q4iEzqxuaNyZakEWFYWoaKbvDYystFVj+yywNhUo=",
+        "owner": "hhefesto",
+        "repo": "bend-text",
+        "rev": "51a927e6a9bb78f6d958eefe48314b0bc82c9d39",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-text",
+        "type": "github"
+      }
+    },
+    "bend-time": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-time",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330324,
+        "narHash": "sha256-VVgNBkV8bSEIDYvPm8SzC19rD9LbZ3+f8Ek9Ba2TIck=",
+        "owner": "hhefesto",
+        "repo": "bend-time",
+        "rev": "aebfdc1001e759dcbd227c236441f76f4eb00b09",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-time",
+        "type": "github"
+      }
+    },
+    "bend-wire": {
+      "inputs": {
+        "bend-frp": [
+          "mugen-web",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "mugen-web",
+          "bend-wire",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330267,
+        "narHash": "sha256-ea2rOzAszaOEtAQWDl0I5lEUss13EiTfvIgfVg8HbBk=",
+        "owner": "hhefesto",
+        "repo": "bend-wire",
+        "rev": "cdb5dc923a824e9cbebb90d962d0ec20e6d86678",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-wire",
         "type": "github"
       }
     },
@@ -1102,33 +1450,46 @@
         "uniichat": "uniichat"
       },
       "locked": {
-        "lastModified": 1795096375,
-        "narHash": "sha256-wslcb/ks2x0iNqUwe1n5Wo7ur3/+TDHy2nhDN2AP6cY=",
-        "owner": "hhefesto",
-        "repo": "mugen",
-        "rev": "25cebe05f5d10712b57653a52442cf1812cde739",
-        "type": "github"
+        "lastModified": 1795331904,
+        "narHash": "sha256-UiVOTYiMrjPDcnlhqb5NyOiZ9w5DOvxs+4w+E7VraCI=",
+        "ref": "emacs-mode",
+        "rev": "a97b7e87168fb184b343f7eda539af355533344b",
+        "revCount": 56,
+        "type": "git",
+        "url": "file:///home/hhefesto/src/mugen"
       },
       "original": {
-        "owner": "hhefesto",
-        "repo": "mugen",
-        "type": "github"
+        "ref": "emacs-mode",
+        "type": "git",
+        "url": "file:///home/hhefesto/src/mugen"
       }
     },
     "mugen-web": {
       "inputs": {
+        "bend-bcrypt": "bend-bcrypt",
+        "bend-bucket": "bend-bucket",
+        "bend-entropy": "bend-entropy",
+        "bend-files": "bend-files",
         "bend-frp": "bend-frp_3",
+        "bend-json": "bend-json",
+        "bend-md": "bend-md",
+        "bend-radix": "bend-radix",
+        "bend-route": "bend-route",
+        "bend-sha2": "bend-sha2",
+        "bend-text": "bend-text",
+        "bend-time": "bend-time",
+        "bend-wire": "bend-wire",
         "flake-parts": "flake-parts_6",
         "haskell-flake": "haskell-flake_3",
         "mugen": "mugen_2",
         "nixpkgs": "nixpkgs_12"
       },
       "locked": {
-        "lastModified": 1795326609,
-        "narHash": "sha256-VSb/ozFDSysrnI8B5P5DOd7xrVY++htvgcbbg5NVMpY=",
+        "lastModified": 1795330667,
+        "narHash": "sha256-LcZsdjV+Mo2bWSgWt/JoUGMEBVAGDcmNABB/hv5rpUc=",
         "ref": "refs/heads/master",
-        "rev": "92d531a67085a3a1617261ccd25cba68ea485efe",
-        "revCount": 43,
+        "rev": "a8bf5b92f65a52469a4cc238bea0ddb5af665b54",
+        "revCount": 44,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/mugen-app"
       },

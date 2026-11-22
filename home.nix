@@ -1,4 +1,4 @@
-{ config, osConfig, pkgs, lib, telomare, xmobarrc, ... }:
+{ config, osConfig, pkgs, lib, telomare, mugen, xmobarrc, ... }:
 let
   # This checkout. ~/.spacemacs points into it and the spacemacs activation
   # commits to it, so it must live here on every host.
@@ -107,6 +107,12 @@ in
     config.lib.file.mkOutOfStoreSymlink "${repo}/spacemacs";
   # The whole source tree, so telomare-mode-spacemacs.el finds its flake.nix.
   home.file.".local/share/telomare".source = telomare;
+  # M-x mugen (C-c m): Emacs writes to the running mugen, beside its own
+  # input (mugen's emacs/mugen.el, byte-compiled; docs/emacs.md there).
+  # Spacemacs's user-config puts this dir on its load-path, if it is here
+  # (xty has no home-manager, so no dir: the dotfile goes on without it).
+  home.file.".local/share/mugen-emacs".source =
+    "${mugen.packages.${pkgs.stdenv.hostPlatform.system}.emacs-mugen}/share/emacs/site-lisp";
 
   programs.direnv = {
     enable = true;

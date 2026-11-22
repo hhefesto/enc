@@ -618,6 +618,17 @@ before packages are loaded."
 
   (load "~/.local/share/telomare/emacs-telomare-mode/telomare-mode-spacemacs.el" t)
 
+  ;; mugen: M-x mugen (or C-c m) writes to the running mugen, beside its own
+  ;; input; C-c ? there lists its keys. home.nix links mugen's emacs-mugen
+  ;; package here; loaded on first use.
+  (let ((dir (expand-file-name "~/.local/share/mugen-emacs")))
+    (when (file-directory-p dir)
+      (add-to-list 'load-path dir)
+      (autoload 'mugen "mugen" "Write to the running mugen." t)
+      (autoload 'mugen-start "mugen" "Start mugen in tmux." t)
+      (autoload 'mugen-send-string "mugen" "Send a text to the running mugen.")
+      (global-set-key (kbd "C-c m") #'mugen)))
+
   (defun my/maybe-activate-agda-mode ()
     "Activate agda2-mode for Agda files using the project's direnv environment.
 Deferred via idle-timer. Derives the agda2.el path directly from the
