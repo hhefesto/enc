@@ -137,4 +137,23 @@
   networking.firewall.interfaces.tailscale0.allowedUDPPortRanges = [
     { from = 60000; to = 61000; }
   ];
+
+  # enc-update (enc-update.nix, enc-update.bend): olimpo is the builder. It
+  # updates the system inputs only (nixpkgs and the like; the project inputs
+  # stay where you pinned them), refuses an update that would build GHC, a
+  # kernel or a browser, and switches delfos, then olimpo, then xty, each
+  # only while idle, checking each and switching it back if it broke.
+  services.enc-update = {
+    enable = true;
+    builder = true;
+    loadMax = "4";
+    idleMinutes = 30;
+    # delfos: once root there has olimpo's key (asked 11-22), as xty has
+    targets = [ "delfos root@192.168.3.6" "olimpo local" "xty root@62.238.6.4" ];
+    inputs = [ "nixpkgs" "home-manager" "agenix" "determinate" "deploy-rs" "flake-parts" "claude-code-nix" "codex-cli-nix" ];
+    forbid = [ "ghc" "rustc" "linux" "gcc" "glibc" "llvm" "firefox-unwrapped" "chromium-unwrapped" "libreoffice" "qtwebengine" "electron" ];
+    gates.xty = [ "pre-deploy-xty-live" ];
+    push = "none";
+    health = [ "unit sshd" "unit nix-daemon" "unit display-manager" "unit tailscaled" ];
+  };
 }

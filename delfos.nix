@@ -35,4 +35,12 @@
       esac
     '';
   }];
+
+  # enc-update: delfos is updated by olimpo (olimpo.nix), only when idle and
+  # on mains power
+  services.enc-update = {
+    enable = true;
+    acRequired = true;
+    health = [ "unit sshd" "unit nix-daemon" "unit display-manager" ];
+  };
 }
