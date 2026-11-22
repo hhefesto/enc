@@ -58,7 +58,10 @@ in
     })
     sox
     zoom-us
-    discord-ptb
+    # Stable, not PTB: nixpkgs' discord-ptb 1.0.226 (11-13's pin and 11-22's
+    # unstable alike) dies at start with "Cannot find module
+    # 'discord_desktop_core'"; discord 1.0.168 starts.
+    discord
     signal-desktop
     unetbootin
     scrot
