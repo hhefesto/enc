@@ -74,14 +74,21 @@
 
   # mugen-web reads ~/.mugen and types into mugen's tmux pane, so it runs
   # here, as hhefesto: on the tailnet at http://olimpo:3008/chat/, and at
-  # https://mugen.hhefesto.dev through a reverse tunnel to xty. Set its
-  # password with `mugen-web passwd`; `mugen-web link` prints a one-time
-  # sign-in link.
+  # https://mugen.hhefesto.dev through a reverse tunnel to xty. Its
+  # password's bcrypt hash is an agenix secret (rotate with
+  # secrets/rotate-mugen-web-password.sh); `mugen-web link` prints a
+  # one-time sign-in link.
+  age.secrets.mugen-web-password = {
+    file = ./secrets/mugen-web-password.age;
+    owner = "hhefesto";
+    mode = "0400";
+  };
   services.mugen-web.origin = {
     enable = true;
     user = "hhefesto";
     tailnet = true;
     tmux = config.programs.tmux.package;
+    passwordFile = config.age.secrets.mugen-web-password.path;
     tunnel = {
       enable = true;
       host = "62.238.6.4";

@@ -13,4 +13,10 @@ in
   # consumed via users.users.*.hashedPasswordFile in configuration-core.nix.
   # Rotate with ./rotate-user-password.sh
   "user-password.age".publicKeys = users ++ systems;
+
+  # bcrypt hash of mugen-web's (mugen-app's) sign-in password, linked as
+  # ~/.local/state/mugen-web/password.bcrypt on olimpo
+  # (services.mugen-web.origin.passwordFile in olimpo.nix).
+  # Rotate with ./rotate-mugen-web-password.sh
+  "mugen-web-password.age".publicKeys = users ++ [ olimpo ];
 }
