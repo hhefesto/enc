@@ -66,6 +66,15 @@ in
       bind - split-window -v -c "#{pane_current_path}"
       bind c new-window     -c "#{pane_current_path}"
 
+      # Emacs-style copy (keyMode emacs): C-o C-SPC enters copy-mode (Ctrl
+      # held from the prefix), then C-SPC sets the mark, the Emacs motions
+      # move (C-f/b/n/p, M-f/b, C-a/e, C-v/M-v, M-</M->, C-s/C-r), M-w copies
+      # and leaves (to tmux's buffer, OSC 52 and, on X hosts, the clipboard),
+      # C-g drops the mark, q leaves. C-o C-y pastes tmux's last copy.
+      # C-o [ and C-o ] still do the same.
+      bind C-Space copy-mode
+      bind C-y     paste-buffer -p
+
       bind R source-file /etc/tmux.conf \; display-message "tmux.conf reloaded"
 
       # palette lifted from xmobarrc-* and xmonad.hs: black bg, #646464
