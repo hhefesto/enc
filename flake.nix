@@ -37,6 +37,9 @@
     # Telomare's deck (telomare.hhefesto.dev): a bend-frp page, static files
     # that xty serves. It keeps bend-frp's nixpkgs and Bend pins: no `follows`.
     telomare-site.url = "git+ssh://git@github.com/hhefesto/telomare-site";
+    # cata's deck (cata.hhefesto.dev): a bend-frp page like telomare-site, with
+    # its own bend-frp pins: no `follows`.
+    cata-site.url = "git+ssh://git@github.com/hhefesto/cata-site";
     docxty.url = "git+ssh://git@github.com/hhefesto/docxty";
     wedding-page.url = "github:hhefesto/wedding-website";
     directo.url = "git+ssh://git@github.com/hhefesto/directo";
@@ -295,6 +298,23 @@
             enableACME = true;
             forceSSL = true;
             root = "${inputs.telomare-site.packages.x86_64-linux.www}";
+            extraConfig = ''
+              etag off;
+              if_modified_since off;
+              add_header X-Content-Type-Options nosniff always;
+            '';
+            locations."/".extraConfig = "expires 5m;";
+            locations."= /".extraConfig = "expires -1;";
+            locations."= /index.html".extraConfig = "expires -1;";
+          };
+
+          # cata's deck (cata.hhefesto.dev, hhefesto/cata-site): its theory, laws,
+          # round trips and use cases (telomare first). Same static-file rules
+          # as telomare's deck. Its DNS record (A, proxied) was made before this.
+          services.nginx.virtualHosts."cata.hhefesto.dev" = {
+            enableACME = true;
+            forceSSL = true;
+            root = "${inputs.cata-site.packages.x86_64-linux.www}";
             extraConfig = ''
               etag off;
               if_modified_since off;
