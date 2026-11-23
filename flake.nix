@@ -34,6 +34,9 @@
     # all static files that xty serves. It keeps its own nixpkgs and Bend
     # pins (bend-frp's): no `follows`.
     elcubodeedgar.url = "github:hhefesto/elcubodeedgar";
+    # Telomare's deck (telomare.hhefesto.dev): a bend-frp page, static files
+    # that xty serves. It keeps bend-frp's nixpkgs and Bend pins: no `follows`.
+    telomare-site.url = "git+ssh://git@github.com/hhefesto/telomare-site";
     docxty.url = "git+ssh://git@github.com/hhefesto/docxty";
     wedding-page.url = "github:hhefesto/wedding-website";
     directo.url = "git+ssh://git@github.com/hhefesto/directo";
@@ -281,6 +284,25 @@
             enableACME = true;
             forceSSL = true;
             globalRedirect = "elcubodeedgar.hhefesto.dev";
+          };
+
+          # Telomare's deck (telomare.hhefesto.dev, hhefesto/telomare-site): the
+          # low-level runtime's results and leads, a bend-frp page (the whole
+          # deck is in index.html as HTML, the script runs the slides). Static
+          # files from the store (mtime 1), so no ETag or If-Modified-Since:
+          # a changed file must never answer 304.
+          services.nginx.virtualHosts."telomare.hhefesto.dev" = {
+            enableACME = true;
+            forceSSL = true;
+            root = "${inputs.telomare-site.packages.x86_64-linux.www}";
+            extraConfig = ''
+              etag off;
+              if_modified_since off;
+              add_header X-Content-Type-Options nosniff always;
+            '';
+            locations."/".extraConfig = "expires 5m;";
+            locations."= /".extraConfig = "expires -1;";
+            locations."= /index.html".extraConfig = "expires -1;";
           };
 
           # All four hhefesto.dev certificates were issued on 2026-09-19 during

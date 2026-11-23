@@ -109,7 +109,7 @@
       "inputs": {
         "darwin": "darwin_3",
         "home-manager": "home-manager_4",
-        "nixpkgs": "nixpkgs_15",
+        "nixpkgs": "nixpkgs_16",
         "systems": "systems_8"
       },
       "locked": {
@@ -302,6 +302,25 @@
       "inputs": {
         "bend2": "bend2_4",
         "nixpkgs": "nixpkgs_11"
+      },
+      "locked": {
+        "lastModified": 1794681142,
+        "narHash": "sha256-TbgQx0KX75+ypHNb644Zc4CkWYhPBPcNA5oUTiPE3xs=",
+        "owner": "hhefesto",
+        "repo": "bend-frp",
+        "rev": "23b8b4043b2ae3451bf07c4d250321d4efe8e8e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-frp",
+        "type": "github"
+      }
+    },
+    "bend-frp_4": {
+      "inputs": {
+        "bend2": "bend2_6",
+        "nixpkgs": "nixpkgs_15"
       },
       "locked": {
         "lastModified": 1794681142,
@@ -645,6 +664,29 @@
       "original": {
         "owner": "bendlang",
         "repo": "bend",
+        "type": "github"
+      }
+    },
+    "bend2_6": {
+      "inputs": {
+        "nixpkgs": [
+          "telomare-site",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793708264,
+        "narHash": "sha256-nc1M5EKRw6k9xgIsHgsnjkSw/PjU7iD3mdr3OVC/yuI=",
+        "owner": "bendlang",
+        "repo": "bend",
+        "rev": "0ba4e5ec0d3c9e93d653883b9184488468040001",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bendlang",
+        "repo": "bend",
+        "rev": "0ba4e5ec0d3c9e93d653883b9184488468040001",
         "type": "github"
       }
     },
@@ -1832,6 +1874,22 @@
     },
     "nixpkgs_15": {
       "locked": {
+        "lastModified": 1783522502,
+        "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_16": {
+      "locked": {
         "lastModified": 1754028485,
         "narHash": "sha256-IiiXB3BDTi6UqzAZcf2S797hWEPCRZOwyNThJIYhUfk=",
         "owner": "NixOS",
@@ -1846,7 +1904,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_16": {
+    "nixpkgs_17": {
       "locked": {
         "lastModified": 1735563628,
         "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
@@ -1862,7 +1920,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_17": {
+    "nixpkgs_18": {
       "locked": {
         "lastModified": 1793183032,
         "narHash": "sha256-56mFMf8heLNfYhcgbrh4GpN5x+G9JOfTFXZC3n6w0qM=",
@@ -2098,6 +2156,7 @@
         "nixpkgs": "nixpkgs_13",
         "refl": "refl",
         "telomare": "telomare",
+        "telomare-site": "telomare-site",
         "wedding-page": "wedding-page",
         "xpsoasis": "xpsoasis"
       }
@@ -2241,6 +2300,29 @@
         "url": "ssh://git@github.com/Stand-In-Language/stand-in-language"
       }
     },
+    "telomare-site": {
+      "inputs": {
+        "bend-frp": "bend-frp_4",
+        "nixpkgs": [
+          "telomare-site",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795451872,
+        "narHash": "sha256-21ZzGhu1wRemX+ZNIs2Be7urZwRSfUOJ6g0OIT/oa0I=",
+        "ref": "refs/heads/master",
+        "rev": "0b34c24b8d21ca7c4b59a82181d3dc0f087267af",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/hhefesto/telomare-site"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/hhefesto/telomare-site"
+      }
+    },
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
@@ -2336,7 +2418,7 @@
       "inputs": {
         "agenix": "agenix_4",
         "flake-parts": "flake-parts_8",
-        "nixpkgs": "nixpkgs_16",
+        "nixpkgs": "nixpkgs_17",
         "reflex-platform": "reflex-platform_2"
       },
       "locked": {
@@ -2359,7 +2441,7 @@
         "flake-parts": "flake-parts_9",
         "haskell-flake": "haskell-flake_5",
         "ionicons": "ionicons",
-        "nixpkgs": "nixpkgs_17",
+        "nixpkgs": "nixpkgs_18",
         "web-push": "web-push"
       },
       "locked": {
