@@ -51,9 +51,10 @@
       inherit pkgs;
       bend = inputs.bend2.packages.${pkgs.stdenv.hostPlatform.system}.default;
     })
-    # `mu`: go to the tmux session where mugen runs. From the phone, an ssh
-    # login lands in tmux "main" (configuration-core.nix); `mu` switches
-    # that client to mugen's session (attaches, outside tmux).
+    # `mu`: go to the tmux session where mugen runs. An ssh login (the
+    # phone's too) never lands there: it picks up a session no one is on,
+    # else a new one (sshTmux, configuration-core.nix); `mu` switches that
+    # client to mugen's session (attaches, outside tmux).
     (pkgs.writeShellScriptBin "mu" ''
       tmux=${config.programs.tmux.package}/bin/tmux
       s=$("$tmux" list-panes -a -F '#{session_name} #{window_index}.#{pane_index} #{pane_current_command}' 2>/dev/null \
@@ -128,7 +129,7 @@
   };
 
   # mosh (Blink on iOS) keeps the session through sleep and network changes;
-  # its ssh login attaches to tmux "main" (configuration-core.nix). Its UDP
+  # its ssh login lands in tmux (sshTmux, configuration-core.nix). Its UDP
   # ports open on the tailnet interface only.
   programs.mosh = {
     enable = true;

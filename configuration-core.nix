@@ -2,6 +2,27 @@
 let
   passwordRotated = builtins.pathExists ./secrets/user-password.age;
   burnedHash = "$6$/RvS0Se.iCx$A0eA/8PzgMj.Ms9ohNamfu53c9S.zdG30hEmUHLjmWP0CaXTPVA6QxGIZ6fy.abkjSOTJMAq7fFL6LUBGs4BU0";
+
+  # The tmux an interactive ssh login lands in: a session no client is on
+  # (one a dropped link or a closed window left behind), else a new blank
+  # one; never a session where mugen runs, attached or not. The same rule as
+  # the desktop's terminals (tmuxAttachOrNew, configuration-gui.nix), less
+  # mugen's session. Session names can't hold ':' (tmux makes it '_'), so
+  # ':' splits the fields. Exits non-zero only when tmux itself fails.
+  sshTmux = pkgs.writeShellScript "ssh-tmux" ''
+    tmux=${config.programs.tmux.package}/bin/tmux
+
+    orphan=$( { "$tmux" list-panes -a -F 'P:#{session_name}:#{pane_current_command}'
+                "$tmux" list-sessions -f '#{==:#{session_attached},0}' -F 'S:#{session_name}'
+              } 2>/dev/null \
+      | ${pkgs.gawk}/bin/awk -F: '$1 == "P" && $3 == "mugen" { m[$2] = 1 }
+                                $1 == "S" && !($2 in m)   { print $2; exit }')
+
+    if [ -n "$orphan" ] && "$tmux" attach-session -t "=$orphan"; then
+      exit 0
+    fi
+    exec "$tmux" new-session
+  '';
 in
 {
   imports = [ inputs.agenix.nixosModules.default ];
@@ -27,13 +48,16 @@ in
 
     shellAliases.t = "tmux new-session -A -s main";
 
-    # An interactive SSH login lands in one persistent session, so a dropped
-    # link costs nothing. Non-interactive SSH (deploy-rs, the pre-deploy
-    # health checks) never reaches this. `tmux ...; then exit` rather than
-    # `exec tmux`: if tmux ever fails to start you keep a usable shell.
+    # An interactive SSH login picks up a session no one is on, else opens a
+    # new blank one, never mugen's (sshTmux, above): another login's screen
+    # never shows up in yours, and a dropped link costs nothing, the next
+    # login picks its session back up. `t` is the shared "main", `mu`
+    # mugen's. Non-interactive SSH (deploy-rs, the pre-deploy health checks)
+    # never reaches this. `... ; then exit` rather than `exec`: if tmux ever
+    # fails to start you keep a usable shell.
     interactiveShellInit = ''
       if [[ -n $SSH_CONNECTION && -z $TMUX && -z $NO_AUTO_TMUX ]]; then
-        if tmux new-session -A -s main; then exit; fi
+        if ${sshTmux}; then exit; fi
       fi
     '';
   };
