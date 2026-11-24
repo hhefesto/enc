@@ -1591,11 +1591,11 @@
         "nixpkgs": "nixpkgs_13"
       },
       "locked": {
-        "lastModified": 1795495619,
-        "narHash": "sha256-fsLq18TnOtc11A+h+eRSBVma54WFx+XGGhwiogGV04Y=",
+        "lastModified": 1795522759,
+        "narHash": "sha256-JxNvtY6QFF9D5WzyMyYKZlQLOj/vMcoTJz8p73Ztl3U=",
         "ref": "refs/heads/master",
-        "rev": "5ba3a7c648c15e7c4c1e76b755c45dbdafec0c38",
-        "revCount": 46,
+        "rev": "29870203389a15a22ef821a07969b361113e75e8",
+        "revCount": 47,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/mugen-app"
       },
