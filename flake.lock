@@ -742,11 +742,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795486107,
-        "narHash": "sha256-QHv5vRAoDJ0kMbiCjPfXUzHsW0wr8NRRZaPEZQuhKf0=",
+        "lastModified": 1795491339,
+        "narHash": "sha256-fRsPGxczpA/K/8fF/FiVdtHyMDQy7g905CSoEuvtbP0=",
         "ref": "refs/heads/master",
-        "rev": "caf3b16c03b1d0327e1dc2eb084fad8c452f7eb1",
-        "revCount": 3,
+        "rev": "836e72c30c7e11484d1996830f2ae672e2779996",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/cata-site"
       },
