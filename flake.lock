@@ -323,11 +323,11 @@
         "nixpkgs": "nixpkgs_12"
       },
       "locked": {
-        "lastModified": 1794681142,
-        "narHash": "sha256-TbgQx0KX75+ypHNb644Zc4CkWYhPBPcNA5oUTiPE3xs=",
+        "lastModified": 1795486861,
+        "narHash": "sha256-z946NlLs1KS60woAJjlusbN1zOFZxBThkWEA5Yo0XU0=",
         "owner": "hhefesto",
         "repo": "bend-frp",
-        "rev": "23b8b4043b2ae3451bf07c4d250321d4efe8e8e4",
+        "rev": "78e6dd69da3b07419e4518e5a9a01551ce7e11af",
         "type": "github"
       },
       "original": {
@@ -1591,11 +1591,11 @@
         "nixpkgs": "nixpkgs_13"
       },
       "locked": {
-        "lastModified": 1795330667,
-        "narHash": "sha256-LcZsdjV+Mo2bWSgWt/JoUGMEBVAGDcmNABB/hv5rpUc=",
+        "lastModified": 1795487396,
+        "narHash": "sha256-eBDWOvNsmPidc3gX8KFCtPikv+AOAuHOxwrWJe1y89M=",
         "ref": "refs/heads/master",
-        "rev": "a8bf5b92f65a52469a4cc238bea0ddb5af665b54",
-        "revCount": 44,
+        "rev": "951dcbc85119f0c7e3c6a97517c56434cc5c8afa",
+        "revCount": 45,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/mugen-app"
       },
