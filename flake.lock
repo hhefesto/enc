@@ -269,11 +269,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1794681142,
-        "narHash": "sha256-TbgQx0KX75+ypHNb644Zc4CkWYhPBPcNA5oUTiPE3xs=",
+        "lastModified": 1795486861,
+        "narHash": "sha256-z946NlLs1KS60woAJjlusbN1zOFZxBThkWEA5Yo0XU0=",
         "owner": "hhefesto",
         "repo": "bend-frp",
-        "rev": "23b8b4043b2ae3451bf07c4d250321d4efe8e8e4",
+        "rev": "78e6dd69da3b07419e4518e5a9a01551ce7e11af",
         "type": "github"
       },
       "original": {
@@ -288,11 +288,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1794681142,
-        "narHash": "sha256-TbgQx0KX75+ypHNb644Zc4CkWYhPBPcNA5oUTiPE3xs=",
+        "lastModified": 1795486861,
+        "narHash": "sha256-z946NlLs1KS60woAJjlusbN1zOFZxBThkWEA5Yo0XU0=",
         "owner": "hhefesto",
         "repo": "bend-frp",
-        "rev": "23b8b4043b2ae3451bf07c4d250321d4efe8e8e4",
+        "rev": "78e6dd69da3b07419e4518e5a9a01551ce7e11af",
         "type": "github"
       },
       "original": {
@@ -342,11 +342,11 @@
         "nixpkgs": "nixpkgs_16"
       },
       "locked": {
-        "lastModified": 1794681142,
-        "narHash": "sha256-TbgQx0KX75+ypHNb644Zc4CkWYhPBPcNA5oUTiPE3xs=",
+        "lastModified": 1795486861,
+        "narHash": "sha256-z946NlLs1KS60woAJjlusbN1zOFZxBThkWEA5Yo0XU0=",
         "owner": "hhefesto",
         "repo": "bend-frp",
-        "rev": "23b8b4043b2ae3451bf07c4d250321d4efe8e8e4",
+        "rev": "78e6dd69da3b07419e4518e5a9a01551ce7e11af",
         "type": "github"
       },
       "original": {
@@ -742,11 +742,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795491339,
-        "narHash": "sha256-fRsPGxczpA/K/8fF/FiVdtHyMDQy7g905CSoEuvtbP0=",
+        "lastModified": 1795513216,
+        "narHash": "sha256-cMBnRsKpZ9uFFhUzWdB4jbwD2ccGHeRvIbRNhOkhHLE=",
         "ref": "refs/heads/master",
-        "rev": "836e72c30c7e11484d1996830f2ae672e2779996",
-        "revCount": 4,
+        "rev": "03ae599804a149c5c5ff5d3fc92b53914da0557a",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/cata-site"
       },
@@ -1038,11 +1038,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794887865,
-        "narHash": "sha256-jWS4WZ7NUj/emvkYDNNr85UU+KhPYTluVrHd/skIscM=",
+        "lastModified": 1795513216,
+        "narHash": "sha256-I4/2P8s7N0WbXIMQRW8JFoqTDtVLBjmcDvkCm7msjO0=",
         "owner": "hhefesto",
         "repo": "elcubodeedgar",
-        "rev": "a03f241285260ffba9b37de4d1e6c432cd16cad8",
+        "rev": "562a089c56bda3a2fe3a9092d3148b6f9eba0517",
         "type": "github"
       },
       "original": {
@@ -2392,11 +2392,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795453919,
-        "narHash": "sha256-mXjS1Mss175HdXS4yRBRFKwXaQ4sEwePBdcVzhbQ9aM=",
+        "lastModified": 1795513216,
+        "narHash": "sha256-HWD+mpx8IdhQVJrGlzwsD3hIOG2z+2vF85izskDQDJ0=",
         "ref": "refs/heads/master",
-        "rev": "ac6dcb6b82d596b4357fbb49aed7b644a2cc52cf",
-        "revCount": 4,
+        "rev": "6d66888197e377da4eb09e5fff1cacaa6834cecf",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/telomare-site"
       },
