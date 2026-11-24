@@ -138,14 +138,20 @@ in
   # never reached the clipboard (the user, 11-21: "I cannot copy paste"):
   # pane-set-clipboard puts each one on X's clipboard too. copy-command does
   # the same for tmux's own copies that name no command (a mouse drag in
-  # copy-mode).
+  # copy-mode). The hook runs in the tmux server's environment: a server an
+  # ssh login started has no XAUTHORITY, so xclip couldn't open the display
+  # and each copy flashed "... returned 1"; it now falls back to gdm's
+  # Xauthority (as wa-send.nix does) and never reports a failure. Checked
+  # 11-23 on olimpo and delfos: an OSC 52 in an olimpo pane, seen from
+  # delfos over ssh, lands on delfos's clipboard; a copy-mode M-w on olimpo,
+  # on olimpo's.
   programs.tmux.extraConfig = let
     xclip = "${pkgs.xclip}/bin/xclip -selection clipboard";
     tmux = "${config.programs.tmux.package}/bin/tmux";
   in ''
     bind -T copy-mode M-w send -X copy-pipe-and-cancel "${xclip}"
     set -s copy-command "${xclip}"
-    set-hook -g pane-set-clipboard { run-shell -b '${tmux} save-buffer - | DISPLAY=''${DISPLAY:-:0} ${xclip} -i >/dev/null 2>&1' }
+    set-hook -g pane-set-clipboard { run-shell -b '${tmux} save-buffer - | DISPLAY=''${DISPLAY:-:0} XAUTHORITY=''${XAUTHORITY:-/run/user/$(id -u)/gdm/Xauthority} ${xclip} -i >/dev/null 2>&1; true' }
   '';
 
   # A tmux pane keeps the environment of the shell that made it, and myterm
