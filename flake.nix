@@ -40,6 +40,10 @@
     # cata's deck (cata.hhefesto.dev): a bend-frp page like telomare-site, with
     # its own bend-frp pins: no `follows`.
     cata-site.url = "git+ssh://git@github.com/hhefesto/cata-site";
+    # directo's infrastructure deck (directo-devops.hhefesto.dev), for Flox's
+    # Infrastructure & Operations team: a bend-frp page like telomare-site,
+    # with its own bend-frp pins: no `follows`.
+    directo-devops-site.url = "git+ssh://git@github.com/hhefesto/directo-devops-site";
     docxty.url = "git+ssh://git@github.com/hhefesto/docxty";
     wedding-page.url = "github:hhefesto/wedding-website";
     directo.url = "git+ssh://git@github.com/hhefesto/directo";
@@ -315,6 +319,25 @@
             enableACME = true;
             forceSSL = true;
             root = "${inputs.cata-site.packages.x86_64-linux.www}";
+            extraConfig = ''
+              etag off;
+              if_modified_since off;
+              add_header X-Content-Type-Options nosniff always;
+            '';
+            locations."/".extraConfig = "expires 5m;";
+            locations."= /".extraConfig = "expires -1;";
+            locations."= /index.html".extraConfig = "expires -1;";
+          };
+
+          # directo's infrastructure deck (directo-devops.hhefesto.dev,
+          # hhefesto/directo-devops-site): the OVH lab declared in Nix and
+          # proven in Bend, and directo's backups on xty (the user, 11-26: "you
+          # can publish"). Same static-file rules as telomare's deck. Its DNS
+          # record (A, proxied) was made before this.
+          services.nginx.virtualHosts."directo-devops.hhefesto.dev" = {
+            enableACME = true;
+            forceSSL = true;
+            root = "${inputs.directo-devops-site.packages.x86_64-linux.www}";
             extraConfig = ''
               etag off;
               if_modified_since off;

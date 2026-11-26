@@ -102,6 +102,7 @@
       "http elcubodeedgar https://elcubodeedgar.hhefesto.dev elcubodeedgar.hhefesto.dev:443:127.0.0.1"
       "http telomare https://telomare.hhefesto.dev telomare.hhefesto.dev:443:127.0.0.1"
       "http cata https://cata.hhefesto.dev cata.hhefesto.dev:443:127.0.0.1"
+      "http directo-devops https://directo-devops.hhefesto.dev directo-devops.hhefesto.dev:443:127.0.0.1"
       "http mugen https://mugen.hhefesto.dev mugen.hhefesto.dev:443:127.0.0.1"
       "http refl https://refl.hhefesto.dev refl.hhefesto.dev:443:127.0.0.1"
       "http xpsoasis https://xpsoasis.hhefesto.dev xpsoasis.hhefesto.dev:443:127.0.0.1"
