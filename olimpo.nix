@@ -1,4 +1,11 @@
 { config, pkgs, inputs, ... }:
+let
+  # directo-backup (directo-backup.bend, directo-backup.nix)
+  directoBackup = import ./directo-backup.nix {
+    inherit pkgs;
+    bend = inputs.bend2.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  };
+in
 {
   imports = [ ./hardware-configuration-olimpo.nix ./lan-cache.nix inputs.refl.nixosModules.default ];
 
@@ -46,6 +53,8 @@
 
   # mugen itself comes with Claude Code, in configuration-workstation.nix.
   environment.systemPackages = [
+    # directo-backup status | drill | backup (the timer below runs backup)
+    directoBackup
     # wa-send: a WhatsApp message through this screen's Brave (wa-send.bend)
     (import ./wa-send.nix {
       inherit pkgs;
@@ -70,6 +79,40 @@
       fi
     '')
   ];
+
+  # --- directo's database ------------------------------------------------
+  # Every night olimpo pulls a dump of directo from xty over ssh into its
+  # restic repo (~/backups/directo-restic), restores it into directo_drill on
+  # xty to show it works, drops that, and copies the repo to delfos when
+  # delfos is up (the user, 11-26: "olimpo pulls a nightly dump from xty over
+  # ssh into a local restic repo, with a copy on delfos"; the drill "directly
+  # against the live directo.hhefesto.dev"). It never writes directo itself
+  # and prunes nothing (directo-backup.bend). As hhefesto: his key is the one
+  # xty's root takes, and his are the repos. 02:15, before enc-update's
+  # hours (03:00-06:00), so a switch of xty never meets a dump.
+  age.secrets.directo-backup-restic = {
+    file = ./secrets/directo-backup-restic.age;
+    owner = "hhefesto";
+    mode = "0400";
+  };
+  systemd.services.directo-backup = {
+    description = "directo's database from xty into olimpo's restic repo, drilled on xty, copied to delfos";
+    wants = [ "network-online.target" ];
+    after = [ "network-online.target" ];
+    environment.RESTIC_PASSWORD_FILE = config.age.secrets.directo-backup-restic.path;
+    serviceConfig = {
+      Type = "oneshot";
+      User = "hhefesto";
+      ExecStart = "${directoBackup}/bin/directo-backup backup";
+    };
+  };
+  systemd.timers.directo-backup = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "*-*-* 02:15:00";
+      Persistent = true;
+    };
+  };
 
   # --- mugen's chat in a browser ------------------------------------------
 

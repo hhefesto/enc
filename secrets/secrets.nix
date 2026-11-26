@@ -19,4 +19,9 @@ in
   # (services.mugen-web.origin.passwordFile in olimpo.nix).
   # Rotate with ./rotate-mugen-web-password.sh
   "mugen-web-password.age".publicKeys = users ++ [ olimpo ];
+
+  # restic's password for directo's backups (directo-backup.bend), read by
+  # olimpo's directo-backup unit as hhefesto; delfos, which keeps the copy,
+  # can open it too
+  "directo-backup-restic.age".publicKeys = users ++ [ olimpo delfos ];
 }
