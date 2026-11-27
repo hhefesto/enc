@@ -1099,11 +1099,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795751442,
-        "narHash": "sha256-ByTMOqtKTlX3lnRIcIIJJYAYelYtL8qRQcJopU24XGs=",
+        "lastModified": 1795808624,
+        "narHash": "sha256-0Z5CNeQCg3wK3FY5oAfQCxEX6LWayNGrQn60r53DCeM=",
         "ref": "refs/heads/master",
-        "rev": "34a96d8517a8cd73641ecafab0bc56ebaab54242",
-        "revCount": 4,
+        "rev": "09070aa518d0b5fbdc559fc74768c1c5825934a3",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/directo-devops-site"
       },
@@ -2691,11 +2691,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795794220,
-        "narHash": "sha256-g7euc18FxVKcOocYJtgqeWtyzGVKKXgHHlp5clcvzck=",
+        "lastModified": 1795808626,
+        "narHash": "sha256-dxFVvM2R/j2iwjz1Jv9wg02VfHuTqyMvSIzN0p8mZFs=",
         "ref": "refs/heads/master",
-        "rev": "88739e2eee33d2aceb420757ac52a1c106d2a964",
-        "revCount": 2,
+        "rev": "77a292b5cfd31942043efe68ae5c1884ed7ebaba",
+        "revCount": 3,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/xpsoasis-devops-site"
       },
