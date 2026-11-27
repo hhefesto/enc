@@ -1057,11 +1057,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795708828,
-        "narHash": "sha256-DazkPfsG/EQkIaEqIKblGMt7TbxRNEhFwrDeNARV85o=",
+        "lastModified": 1795751442,
+        "narHash": "sha256-ByTMOqtKTlX3lnRIcIIJJYAYelYtL8qRQcJopU24XGs=",
         "ref": "refs/heads/master",
-        "rev": "faf0a3f216786e7987814e7465685b366b81fc7a",
-        "revCount": 2,
+        "rev": "34a96d8517a8cd73641ecafab0bc56ebaab54242",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/directo-devops-site"
       },
