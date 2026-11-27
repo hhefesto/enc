@@ -200,6 +200,12 @@
             ports = { nginx = 80; backend = 3002; };
           };
 
+          # A switch that changes nginx's configuration reloads nginx (its
+          # workers finish their requests) instead of restarting it, which
+          # takes every site on xty down for a moment (directo's rehearsal: 11
+          # of 125 requests unanswered). Turning it on restarts nginx once.
+          services.nginx.enableReload = true;
+
           services.xpsoasis.profile = {
             enable = true;
             mode = "production";
@@ -551,6 +557,9 @@
             ]
             ++ lib.optionals ((xtyCfg.systemd.services.directo-backend.environment.DIRECTO_ADMIN_PASSWORD_HASH_FILE or "") != "/run/credentials/directo-backend.service/admin-hash") [
               "directo backend must read the admin hash via systemd LoadCredential"
+            ]
+            ++ lib.optionals (!xtyCfg.services.nginx.enableReload) [
+              "nginx must reload on a configuration change, not restart (every xty site would go down)"
             ]
             ++ lib.optionals ((toString (lib.head (xtyCfg.systemd.services.xpsoasis-backend.serviceConfig.EnvironmentFile or [ "" ]))) != "/run/agenix/xpsoasis-backend-env") [
               "xpsoasis backend must use the production AANALYZER_PGPASS secret"
