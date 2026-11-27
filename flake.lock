@@ -1419,11 +1419,11 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1795811229,
-        "narHash": "sha256-Gto0J4t/iPR5o9WAj/Zv6w0esriPqSmTqY2TsIDogfE=",
+        "lastModified": 1795811903,
+        "narHash": "sha256-z+XOZl5xliJ4CZ3wQ5I/8pTzJOXtRm1+igivgJc/zw8=",
         "ref": "refs/heads/master",
-        "rev": "be11ff54367ee8b8d42dcdd794df4a56c359a68f",
-        "revCount": 36,
+        "rev": "c655eecdbffa50784f3ddd1241c562969e84fad1",
+        "revCount": 37,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/directo"
       },
@@ -1442,11 +1442,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795808624,
-        "narHash": "sha256-0Z5CNeQCg3wK3FY5oAfQCxEX6LWayNGrQn60r53DCeM=",
+        "lastModified": 1795812016,
+        "narHash": "sha256-67sruRKWruhBaTFB4bzzCLUmbJ5p04FxwFO5pYF3f4Y=",
         "ref": "refs/heads/master",
-        "rev": "09070aa518d0b5fbdc559fc74768c1c5825934a3",
-        "revCount": 5,
+        "rev": "5716d84cc01ebe032878e1fb2f5f144819970a84",
+        "revCount": 6,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/directo-devops-site"
       },
