@@ -388,6 +388,8 @@
             ./xty.nix
             ./configuration-core.nix
             xtyServices
+            # directo's binary cache, cache.hhefesto.dev (files olimpo signs)
+            ./directo-cache.nix
           ];
           # Red tmux status bar: this is production.
           extraSpecialArgs = { tmuxAccent = "#ff5f5f"; };
