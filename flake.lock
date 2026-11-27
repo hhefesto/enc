@@ -109,7 +109,7 @@
       "inputs": {
         "darwin": "darwin_3",
         "home-manager": "home-manager_4",
-        "nixpkgs": "nixpkgs_18",
+        "nixpkgs": "nixpkgs_19",
         "systems": "systems_8"
       },
       "locked": {
@@ -144,6 +144,33 @@
       }
     },
     "bend-bcrypt": {
+      "inputs": {
+        "bend-frp": [
+          "directo",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "directo",
+          "bend-bcrypt",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330357,
+        "narHash": "sha256-sqie1i6cAHdjmXadpvGJzTA99A4XlFhdDx/AUva/FOk=",
+        "owner": "hhefesto",
+        "repo": "bend-bcrypt",
+        "rev": "f3f8fa46c93dc49e71b45f35eee81f5fcd6eb6f6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-bcrypt",
+        "type": "github"
+      }
+    },
+    "bend-bcrypt_2": {
       "inputs": {
         "bend-frp": [
           "mugen-web",
@@ -200,6 +227,33 @@
     "bend-entropy": {
       "inputs": {
         "bend-frp": [
+          "directo",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "directo",
+          "bend-entropy",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330335,
+        "narHash": "sha256-QD+r3uy9neW11OoVhP7GdC935hdl9SU6y3XMjuOnGMI=",
+        "owner": "hhefesto",
+        "repo": "bend-entropy",
+        "rev": "9a23c7574222eca6ee2f91117a43424e24f57bce",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-entropy",
+        "type": "github"
+      }
+    },
+    "bend-entropy_2": {
+      "inputs": {
+        "bend-frp": [
           "mugen-web",
           "bend-frp"
         ],
@@ -225,6 +279,45 @@
       }
     },
     "bend-files": {
+      "inputs": {
+        "bend-frp": [
+          "directo",
+          "bend-frp"
+        ],
+        "bend-text": [
+          "directo",
+          "bend-text"
+        ],
+        "bend-time": [
+          "directo",
+          "bend-time"
+        ],
+        "bend-wire": [
+          "directo",
+          "bend-wire"
+        ],
+        "nixpkgs": [
+          "directo",
+          "bend-files",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330459,
+        "narHash": "sha256-MzHMTX8PAqpbN+5nogkfql9B5mfWWaOANzYAzcxQ7Sc=",
+        "owner": "hhefesto",
+        "repo": "bend-files",
+        "rev": "62ba4378a6afdcf83e3270777490baae90a70b37",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-files",
+        "type": "github"
+      }
+    },
+    "bend-files_2": {
       "inputs": {
         "bend-frp": [
           "mugen-web",
@@ -285,7 +378,7 @@
     "bend-frp_2": {
       "inputs": {
         "bend2": "bend2_3",
-        "nixpkgs": "nixpkgs_9"
+        "nixpkgs": "nixpkgs_8"
       },
       "locked": {
         "lastModified": 1795486861,
@@ -304,7 +397,7 @@
     "bend-frp_3": {
       "inputs": {
         "bend2": "bend2_4",
-        "nixpkgs": "nixpkgs_11"
+        "nixpkgs": "nixpkgs_10"
       },
       "locked": {
         "lastModified": 1795486861,
@@ -321,25 +414,9 @@
       }
     },
     "bend-frp_4": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1793750795,
-        "narHash": "sha256-QkGNqUZo/eZKCw96S+VT9cVdZVk8LtebieEiBtJ6FGs=",
-        "owner": "hhefesto",
-        "repo": "bend-frp",
-        "rev": "95d1a827aa96697f096b4720c68567d5229b5275",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hhefesto",
-        "repo": "bend-frp",
-        "type": "github"
-      }
-    },
-    "bend-frp_5": {
       "inputs": {
-        "bend2": "bend2_6",
-        "nixpkgs": "nixpkgs_13"
+        "bend2": "bend2_5",
+        "nixpkgs": "nixpkgs_12"
       },
       "locked": {
         "lastModified": 1795486861,
@@ -355,10 +432,26 @@
         "type": "github"
       }
     },
+    "bend-frp_5": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793750795,
+        "narHash": "sha256-QkGNqUZo/eZKCw96S+VT9cVdZVk8LtebieEiBtJ6FGs=",
+        "owner": "hhefesto",
+        "repo": "bend-frp",
+        "rev": "95d1a827aa96697f096b4720c68567d5229b5275",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-frp",
+        "type": "github"
+      }
+    },
     "bend-frp_6": {
       "inputs": {
-        "bend2": "bend2_8",
-        "nixpkgs": "nixpkgs_17"
+        "bend2": "bend2_7",
+        "nixpkgs": "nixpkgs_14"
       },
       "locked": {
         "lastModified": 1795486861,
@@ -377,7 +470,26 @@
     "bend-frp_7": {
       "inputs": {
         "bend2": "bend2_9",
-        "nixpkgs": "nixpkgs_21"
+        "nixpkgs": "nixpkgs_18"
+      },
+      "locked": {
+        "lastModified": 1795486861,
+        "narHash": "sha256-z946NlLs1KS60woAJjlusbN1zOFZxBThkWEA5Yo0XU0=",
+        "owner": "hhefesto",
+        "repo": "bend-frp",
+        "rev": "78e6dd69da3b07419e4518e5a9a01551ce7e11af",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-frp",
+        "type": "github"
+      }
+    },
+    "bend-frp_8": {
+      "inputs": {
+        "bend2": "bend2_10",
+        "nixpkgs": "nixpkgs_22"
       },
       "locked": {
         "lastModified": 1795486861,
@@ -394,6 +506,33 @@
       }
     },
     "bend-json": {
+      "inputs": {
+        "bend-frp": [
+          "directo",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "directo",
+          "bend-json",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330354,
+        "narHash": "sha256-X7n2NTMLMSVlUlWakLXKd7inDqsxtmcI4xxY48Shcao=",
+        "owner": "hhefesto",
+        "repo": "bend-json",
+        "rev": "e6ce41dafa3eb3586769b3ceec4f9656d8f9a36d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-json",
+        "type": "github"
+      }
+    },
+    "bend-json_2": {
       "inputs": {
         "bend-frp": [
           "mugen-web",
@@ -454,6 +593,33 @@
     "bend-radix": {
       "inputs": {
         "bend-frp": [
+          "directo",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "directo",
+          "bend-radix",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330327,
+        "narHash": "sha256-3JCTL+2+RLxF6E9/Wfu2Pf0bIKqk/ODP1IdsLy+bgb0=",
+        "owner": "hhefesto",
+        "repo": "bend-radix",
+        "rev": "3f3ef7cc30614dd94e427d4929e5192c2fc2aecc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-radix",
+        "type": "github"
+      }
+    },
+    "bend-radix_2": {
+      "inputs": {
+        "bend-frp": [
           "mugen-web",
           "bend-frp"
         ],
@@ -479,6 +645,41 @@
       }
     },
     "bend-route": {
+      "inputs": {
+        "bend-frp": [
+          "directo",
+          "bend-frp"
+        ],
+        "bend-json": [
+          "directo",
+          "bend-json"
+        ],
+        "bend-wire": [
+          "directo",
+          "bend-wire"
+        ],
+        "nixpkgs": [
+          "directo",
+          "bend-route",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330453,
+        "narHash": "sha256-Q+tpcoiCK+MgBg49sxtNO9X1wIvrAFeUlJwMXqdQfD4=",
+        "owner": "hhefesto",
+        "repo": "bend-route",
+        "rev": "e51238b29354db554ca349e941fb1a58e560e0c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-route",
+        "type": "github"
+      }
+    },
+    "bend-route_2": {
       "inputs": {
         "bend-frp": [
           "mugen-web",
@@ -516,6 +717,33 @@
     "bend-sha2": {
       "inputs": {
         "bend-frp": [
+          "directo",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "directo",
+          "bend-sha2",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330332,
+        "narHash": "sha256-6V5OYa9ahUdiKB83TkwNcl3fglK8aVRRT/1SP51BjjE=",
+        "owner": "hhefesto",
+        "repo": "bend-sha2",
+        "rev": "7dbcc170f399a4818bfeebacc4feb8efa60012c1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-sha2",
+        "type": "github"
+      }
+    },
+    "bend-sha2_2": {
+      "inputs": {
+        "bend-frp": [
           "mugen-web",
           "bend-frp"
         ],
@@ -541,6 +769,33 @@
       }
     },
     "bend-text": {
+      "inputs": {
+        "bend-frp": [
+          "directo",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "directo",
+          "bend-text",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330321,
+        "narHash": "sha256-mT2Q4iEzqxuaNyZakEWFYWoaKbvDYystFVj+yywNhUo=",
+        "owner": "hhefesto",
+        "repo": "bend-text",
+        "rev": "51a927e6a9bb78f6d958eefe48314b0bc82c9d39",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-text",
+        "type": "github"
+      }
+    },
+    "bend-text_2": {
       "inputs": {
         "bend-frp": [
           "mugen-web",
@@ -570,6 +825,33 @@
     "bend-time": {
       "inputs": {
         "bend-frp": [
+          "directo",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "directo",
+          "bend-time",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330324,
+        "narHash": "sha256-VVgNBkV8bSEIDYvPm8SzC19rD9LbZ3+f8Ek9Ba2TIck=",
+        "owner": "hhefesto",
+        "repo": "bend-time",
+        "rev": "aebfdc1001e759dcbd227c236441f76f4eb00b09",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-time",
+        "type": "github"
+      }
+    },
+    "bend-time_2": {
+      "inputs": {
+        "bend-frp": [
           "mugen-web",
           "bend-frp"
         ],
@@ -595,6 +877,33 @@
       }
     },
     "bend-wire": {
+      "inputs": {
+        "bend-frp": [
+          "directo",
+          "bend-frp"
+        ],
+        "nixpkgs": [
+          "directo",
+          "bend-wire",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795330267,
+        "narHash": "sha256-ea2rOzAszaOEtAQWDl0I5lEUss13EiTfvIgfVg8HbBk=",
+        "owner": "hhefesto",
+        "repo": "bend-wire",
+        "rev": "cdb5dc923a824e9cbebb90d962d0ec20e6d86678",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-wire",
+        "type": "github"
+      }
+    },
+    "bend-wire_2": {
       "inputs": {
         "bend-frp": [
           "mugen-web",
@@ -641,6 +950,29 @@
         "type": "github"
       }
     },
+    "bend2_10": {
+      "inputs": {
+        "nixpkgs": [
+          "xpsoasis-devops-site",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793708264,
+        "narHash": "sha256-nc1M5EKRw6k9xgIsHgsnjkSw/PjU7iD3mdr3OVC/yuI=",
+        "owner": "bendlang",
+        "repo": "bend",
+        "rev": "0ba4e5ec0d3c9e93d653883b9184488468040001",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bendlang",
+        "repo": "bend",
+        "rev": "0ba4e5ec0d3c9e93d653883b9184488468040001",
+        "type": "github"
+      }
+    },
     "bend2_2": {
       "inputs": {
         "nixpkgs": [
@@ -667,7 +999,7 @@
     "bend2_3": {
       "inputs": {
         "nixpkgs": [
-          "directo-devops-site",
+          "directo",
           "bend-frp",
           "nixpkgs"
         ]
@@ -690,7 +1022,7 @@
     "bend2_4": {
       "inputs": {
         "nixpkgs": [
-          "elcubodeedgar",
+          "directo-devops-site",
           "bend-frp",
           "nixpkgs"
         ]
@@ -713,6 +1045,29 @@
     "bend2_5": {
       "inputs": {
         "nixpkgs": [
+          "elcubodeedgar",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793708264,
+        "narHash": "sha256-nc1M5EKRw6k9xgIsHgsnjkSw/PjU7iD3mdr3OVC/yuI=",
+        "owner": "bendlang",
+        "repo": "bend",
+        "rev": "0ba4e5ec0d3c9e93d653883b9184488468040001",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bendlang",
+        "repo": "bend",
+        "rev": "0ba4e5ec0d3c9e93d653883b9184488468040001",
+        "type": "github"
+      }
+    },
+    "bend2_6": {
+      "inputs": {
+        "nixpkgs": [
           "mugen",
           "nixpkgs"
         ]
@@ -731,7 +1086,7 @@
         "type": "github"
       }
     },
-    "bend2_6": {
+    "bend2_7": {
       "inputs": {
         "nixpkgs": [
           "mugen-web",
@@ -754,7 +1109,7 @@
         "type": "github"
       }
     },
-    "bend2_7": {
+    "bend2_8": {
       "flake": false,
       "locked": {
         "lastModified": 1789677457,
@@ -770,33 +1125,10 @@
         "type": "github"
       }
     },
-    "bend2_8": {
-      "inputs": {
-        "nixpkgs": [
-          "telomare-site",
-          "bend-frp",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793708264,
-        "narHash": "sha256-nc1M5EKRw6k9xgIsHgsnjkSw/PjU7iD3mdr3OVC/yuI=",
-        "owner": "bendlang",
-        "repo": "bend",
-        "rev": "0ba4e5ec0d3c9e93d653883b9184488468040001",
-        "type": "github"
-      },
-      "original": {
-        "owner": "bendlang",
-        "repo": "bend",
-        "rev": "0ba4e5ec0d3c9e93d653883b9184488468040001",
-        "type": "github"
-      }
-    },
     "bend2_9": {
       "inputs": {
         "nixpkgs": [
-          "xpsoasis-devops-site",
+          "telomare-site",
           "bend-frp",
           "nixpkgs"
         ]
@@ -1071,16 +1403,27 @@
     "directo": {
       "inputs": {
         "agenix": "agenix_2",
+        "bend-bcrypt": "bend-bcrypt",
+        "bend-entropy": "bend-entropy",
+        "bend-files": "bend-files",
+        "bend-frp": "bend-frp_2",
+        "bend-json": "bend-json",
+        "bend-radix": "bend-radix",
+        "bend-route": "bend-route",
+        "bend-sha2": "bend-sha2",
+        "bend-text": "bend-text",
+        "bend-time": "bend-time",
+        "bend-wire": "bend-wire",
         "flake-parts": "flake-parts_3",
         "haskell-flake": "haskell-flake",
-        "nixpkgs": "nixpkgs_8"
+        "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1783705315,
-        "narHash": "sha256-3uvDQEkGMKl4/ThHPXfNjy+kVZ7F6cksViKI/lLSrRY=",
+        "lastModified": 1795798847,
+        "narHash": "sha256-YDOG93QlyVYXgYx5VbL22NcHo0efRtT+KUYQ9o931nM=",
         "ref": "refs/heads/master",
-        "rev": "2c5fca333e8f0929ba9171c6a419d40cfcd09a05",
-        "revCount": 9,
+        "rev": "8f64171bef75f6476f3755d7daf505c3b4dddbf2",
+        "revCount": 35,
         "type": "git",
         "url": "ssh://git@github.com/hhefesto/directo"
       },
@@ -1091,7 +1434,7 @@
     },
     "directo-devops-site": {
       "inputs": {
-        "bend-frp": "bend-frp_2",
+        "bend-frp": "bend-frp_3",
         "nixpkgs": [
           "directo-devops-site",
           "bend-frp",
@@ -1118,7 +1461,7 @@
         "deploy-rs": "deploy-rs_2",
         "flake-parts": "flake-parts_4",
         "haskell-flake": "haskell-flake_2",
-        "nixpkgs": "nixpkgs_10",
+        "nixpkgs": "nixpkgs_11",
         "reflex-platform": "reflex-platform"
       },
       "locked": {
@@ -1137,7 +1480,7 @@
     },
     "elcubodeedgar": {
       "inputs": {
-        "bend-frp": "bend-frp_3",
+        "bend-frp": "bend-frp_4",
         "nixpkgs": [
           "elcubodeedgar",
           "bend-frp",
@@ -1622,7 +1965,7 @@
     },
     "horas": {
       "inputs": {
-        "bend-frp": "bend-frp_4",
+        "bend-frp": "bend-frp_5",
         "bend2": [
           "bend2"
         ],
@@ -1659,8 +2002,8 @@
     },
     "mugen": {
       "inputs": {
-        "bend2": "bend2_5",
-        "nixpkgs": "nixpkgs_12",
+        "bend2": "bend2_6",
+        "nixpkgs": "nixpkgs_13",
         "uniichat": "uniichat"
       },
       "locked": {
@@ -1679,23 +2022,23 @@
     },
     "mugen-web": {
       "inputs": {
-        "bend-bcrypt": "bend-bcrypt",
+        "bend-bcrypt": "bend-bcrypt_2",
         "bend-bucket": "bend-bucket",
-        "bend-entropy": "bend-entropy",
-        "bend-files": "bend-files",
-        "bend-frp": "bend-frp_5",
-        "bend-json": "bend-json",
+        "bend-entropy": "bend-entropy_2",
+        "bend-files": "bend-files_2",
+        "bend-frp": "bend-frp_6",
+        "bend-json": "bend-json_2",
         "bend-md": "bend-md",
-        "bend-radix": "bend-radix",
-        "bend-route": "bend-route",
-        "bend-sha2": "bend-sha2",
-        "bend-text": "bend-text",
-        "bend-time": "bend-time",
-        "bend-wire": "bend-wire",
+        "bend-radix": "bend-radix_2",
+        "bend-route": "bend-route_2",
+        "bend-sha2": "bend-sha2_2",
+        "bend-text": "bend-text_2",
+        "bend-time": "bend-time_2",
+        "bend-wire": "bend-wire_2",
         "flake-parts": "flake-parts_6",
         "haskell-flake": "haskell-flake_3",
         "mugen": "mugen_2",
-        "nixpkgs": "nixpkgs_14"
+        "nixpkgs": "nixpkgs_15"
       },
       "locked": {
         "lastModified": 1795539306,
@@ -1966,22 +2309,6 @@
     },
     "nixpkgs_10": {
       "locked": {
-        "lastModified": 1751274312,
-        "narHash": "sha256-/bVBlRpECLVzjV19t5KMdMFWSwKLtb5RyXdjz3LJT+g=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "50ab793786d9de88ee30ec4e4c24fb4236fc2674",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-24.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_11": {
-      "locked": {
         "lastModified": 1783522502,
         "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
         "owner": "NixOS",
@@ -1992,6 +2319,22 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_11": {
+      "locked": {
+        "lastModified": 1751274312,
+        "narHash": "sha256-/bVBlRpECLVzjV19t5KMdMFWSwKLtb5RyXdjz3LJT+g=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "50ab793786d9de88ee30ec4e4c24fb4236fc2674",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -2030,6 +2373,22 @@
     },
     "nixpkgs_14": {
       "locked": {
+        "lastModified": 1783522502,
+        "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_15": {
+      "locked": {
         "lastModified": 1783224372,
         "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
         "owner": "NixOS",
@@ -2044,7 +2403,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_15": {
+    "nixpkgs_16": {
       "locked": {
         "lastModified": 1795234589,
         "narHash": "sha256-f/VVvxf5RsQgWVhUtefoca5ktVg0DA2bnkMOcmSnozo=",
@@ -2060,7 +2419,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_16": {
+    "nixpkgs_17": {
       "locked": {
         "lastModified": 1783224372,
         "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
@@ -2076,7 +2435,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_17": {
+    "nixpkgs_18": {
       "locked": {
         "lastModified": 1783522502,
         "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
@@ -2092,7 +2451,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_18": {
+    "nixpkgs_19": {
       "locked": {
         "lastModified": 1754028485,
         "narHash": "sha256-IiiXB3BDTi6UqzAZcf2S797hWEPCRZOwyNThJIYhUfk=",
@@ -2104,22 +2463,6 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_19": {
-      "locked": {
-        "lastModified": 1735563628,
-        "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b134951a4c9f3c995fd7be05f3243f8ecd65d798",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-24.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -2142,6 +2485,22 @@
     },
     "nixpkgs_20": {
       "locked": {
+        "lastModified": 1735563628,
+        "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b134951a4c9f3c995fd7be05f3243f8ecd65d798",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_21": {
+      "locked": {
         "lastModified": 1793183032,
         "narHash": "sha256-56mFMf8heLNfYhcgbrh4GpN5x+G9JOfTFXZC3n6w0qM=",
         "owner": "NixOS",
@@ -2156,7 +2515,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_21": {
+    "nixpkgs_22": {
       "locked": {
         "lastModified": 1783522502,
         "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
@@ -2250,11 +2609,11 @@
     },
     "nixpkgs_8": {
       "locked": {
-        "lastModified": 1783224372,
-        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
+        "lastModified": 1783522502,
+        "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
         "type": "github"
       },
       "original": {
@@ -2266,11 +2625,11 @@
     },
     "nixpkgs_9": {
       "locked": {
-        "lastModified": 1783522502,
-        "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
         "type": "github"
       },
       "original": {
@@ -2304,10 +2663,10 @@
     },
     "refl": {
       "inputs": {
-        "bend2": "bend2_7",
+        "bend2": "bend2_8",
         "flake-parts": "flake-parts_7",
         "haskell-flake": "haskell-flake_4",
-        "nixpkgs": "nixpkgs_16",
+        "nixpkgs": "nixpkgs_17",
         "nixpkgs-reflex": "nixpkgs-reflex_2"
       },
       "locked": {
@@ -2375,7 +2734,7 @@
         "horas": "horas",
         "mugen": "mugen",
         "mugen-web": "mugen-web",
-        "nixpkgs": "nixpkgs_15",
+        "nixpkgs": "nixpkgs_16",
         "refl": "refl",
         "telomare": "telomare",
         "telomare-site": "telomare-site",
@@ -2525,7 +2884,7 @@
     },
     "telomare-site": {
       "inputs": {
-        "bend-frp": "bend-frp_6",
+        "bend-frp": "bend-frp_7",
         "nixpkgs": [
           "telomare-site",
           "bend-frp",
@@ -2641,7 +3000,7 @@
       "inputs": {
         "agenix": "agenix_4",
         "flake-parts": "flake-parts_8",
-        "nixpkgs": "nixpkgs_19",
+        "nixpkgs": "nixpkgs_20",
         "reflex-platform": "reflex-platform_2"
       },
       "locked": {
@@ -2664,7 +3023,7 @@
         "flake-parts": "flake-parts_9",
         "haskell-flake": "haskell-flake_5",
         "ionicons": "ionicons",
-        "nixpkgs": "nixpkgs_20",
+        "nixpkgs": "nixpkgs_21",
         "web-push": "web-push"
       },
       "locked": {
@@ -2683,7 +3042,7 @@
     },
     "xpsoasis-devops-site": {
       "inputs": {
-        "bend-frp": "bend-frp_7",
+        "bend-frp": "bend-frp_8",
         "nixpkgs": [
           "xpsoasis-devops-site",
           "bend-frp",

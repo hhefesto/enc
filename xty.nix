@@ -95,7 +95,7 @@
     hours = { from = 3; to = 6; };
     health = [
       "unit sshd" "unit nginx" "unit postgresql" "unit fail2ban"
-      "unit directo-backend" "unit expedientes-backend" "unit xpsoasis-backend"
+      "unit directo-backend" "unit directo-backend-b" "unit directo-roll" "unit expedientes-backend" "unit xpsoasis-backend"
       "unit aaspectra" "unit wedding-backend" "unit refl"
       "http directo https://directo.hhefesto.dev directo.hhefesto.dev:443:127.0.0.1"
       "http docxty https://docxty.net docxty.net:443:127.0.0.1"

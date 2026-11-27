@@ -197,7 +197,12 @@
             enable = true;
             mode = "production";
             serverName = "directo.hhefesto.dev";
-            ports = { nginx = 80; backend = 3002; };
+            # Two Bend instances behind nginx (3012 free on xty): a deploy
+            # restarts them one at a time, each only while the other answers
+            # (directo-roll, directo's server/Roll.bend; its laws in
+            # server/DEPLOY.bend). The user, 11-27: "change a site and keep it
+            # up at all times".
+            ports = { nginx = 80; backend = 3002; backendB = 3012; };
           };
 
           # A switch that changes nginx's configuration reloads nginx (its
@@ -557,6 +562,18 @@
             ]
             ++ lib.optionals ((xtyCfg.systemd.services.directo-backend.environment.DIRECTO_ADMIN_PASSWORD_HASH_FILE or "") != "/run/credentials/directo-backend.service/admin-hash") [
               "directo backend must read the admin hash via systemd LoadCredential"
+            ]
+            ++ lib.optionals (!(xtyCfg.systemd.services ? directo-backend-b && xtyCfg.systemd.services ? directo-roll)) [
+              "directo must run two instances (directo-backend, directo-backend-b) deployed by directo-roll"
+            ]
+            ++ lib.optionals ((toString (lib.head (xtyCfg.systemd.services.directo-backend-b.serviceConfig.EnvironmentFile or [ "" ]))) != "/run/agenix/directo-backend-env") [
+              "directo's second instance must use the production env secret"
+            ]
+            ++ lib.optionals ((xtyCfg.systemd.services.directo-backend-b.environment.DIRECTO_ADMIN_PASSWORD_HASH_FILE or "") != "/run/credentials/directo-backend-b.service/admin-hash") [
+              "directo's second instance must read the admin hash via systemd LoadCredential"
+            ]
+            ++ lib.optionals (xtyCfg.systemd.services.directo-backend.restartIfChanged or true || xtyCfg.systemd.services.directo-backend-b.restartIfChanged or true) [
+              "a switch must not restart directo's instances (directo-roll does, one at a time)"
             ]
             ++ lib.optionals (!xtyCfg.services.nginx.enableReload) [
               "nginx must reload on a configuration change, not restart (every xty site would go down)"
