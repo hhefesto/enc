@@ -374,6 +374,25 @@
         "type": "github"
       }
     },
+    "bend-frp_7": {
+      "inputs": {
+        "bend2": "bend2_9",
+        "nixpkgs": "nixpkgs_21"
+      },
+      "locked": {
+        "lastModified": 1795486861,
+        "narHash": "sha256-z946NlLs1KS60woAJjlusbN1zOFZxBThkWEA5Yo0XU0=",
+        "owner": "hhefesto",
+        "repo": "bend-frp",
+        "rev": "78e6dd69da3b07419e4518e5a9a01551ce7e11af",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hhefesto",
+        "repo": "bend-frp",
+        "type": "github"
+      }
+    },
     "bend-json": {
       "inputs": {
         "bend-frp": [
@@ -755,6 +774,29 @@
       "inputs": {
         "nixpkgs": [
           "telomare-site",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793708264,
+        "narHash": "sha256-nc1M5EKRw6k9xgIsHgsnjkSw/PjU7iD3mdr3OVC/yuI=",
+        "owner": "bendlang",
+        "repo": "bend",
+        "rev": "0ba4e5ec0d3c9e93d653883b9184488468040001",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bendlang",
+        "repo": "bend",
+        "rev": "0ba4e5ec0d3c9e93d653883b9184488468040001",
+        "type": "github"
+      }
+    },
+    "bend2_9": {
+      "inputs": {
+        "nixpkgs": [
+          "xpsoasis-devops-site",
           "bend-frp",
           "nixpkgs"
         ]
@@ -2114,6 +2156,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_21": {
+      "locked": {
+        "lastModified": 1783522502,
+        "narHash": "sha256-iffAls3iaNTyJC2faYcUXSI+Gp02cDjYl+MygxKl2GI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0bb7ec54c8483066ec9d7720e780a5caa71f8612",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_3": {
       "locked": {
         "lastModified": 1795155813,
@@ -2322,7 +2380,8 @@
         "telomare": "telomare",
         "telomare-site": "telomare-site",
         "wedding-page": "wedding-page",
-        "xpsoasis": "xpsoasis"
+        "xpsoasis": "xpsoasis",
+        "xpsoasis-devops-site": "xpsoasis-devops-site"
       }
     },
     "systems": {
@@ -2620,6 +2679,29 @@
       "original": {
         "type": "git",
         "url": "ssh://git@github.com/rdataa/xpsOasis"
+      }
+    },
+    "xpsoasis-devops-site": {
+      "inputs": {
+        "bend-frp": "bend-frp_7",
+        "nixpkgs": [
+          "xpsoasis-devops-site",
+          "bend-frp",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795794220,
+        "narHash": "sha256-g7euc18FxVKcOocYJtgqeWtyzGVKKXgHHlp5clcvzck=",
+        "ref": "refs/heads/master",
+        "rev": "88739e2eee33d2aceb420757ac52a1c106d2a964",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/hhefesto/xpsoasis-devops-site"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/hhefesto/xpsoasis-devops-site"
       }
     }
   },

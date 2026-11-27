@@ -103,6 +103,7 @@
       "http telomare https://telomare.hhefesto.dev telomare.hhefesto.dev:443:127.0.0.1"
       "http cata https://cata.hhefesto.dev cata.hhefesto.dev:443:127.0.0.1"
       "http directo-devops https://directo-devops.hhefesto.dev directo-devops.hhefesto.dev:443:127.0.0.1"
+      "http xpsoasis-devops https://xpsoasis-devops.hhefesto.dev xpsoasis-devops.hhefesto.dev:443:127.0.0.1"
       "http directo-cache https://cache.hhefesto.dev/nix-cache-info cache.hhefesto.dev:443:127.0.0.1"
       "http mugen https://mugen.hhefesto.dev mugen.hhefesto.dev:443:127.0.0.1"
       "http refl https://refl.hhefesto.dev refl.hhefesto.dev:443:127.0.0.1"

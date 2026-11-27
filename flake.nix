@@ -44,6 +44,9 @@
     # Infrastructure & Operations team: a bend-frp page like telomare-site,
     # with its own bend-frp pins: no `follows`.
     directo-devops-site.url = "git+ssh://git@github.com/hhefesto/directo-devops-site";
+    # xpsoasis's infrastructure deck (xpsoasis-devops.hhefesto.dev), the same
+    # kind of page: its own bend-frp pins, no `follows`.
+    xpsoasis-devops-site.url = "git+ssh://git@github.com/hhefesto/xpsoasis-devops-site";
     docxty.url = "git+ssh://git@github.com/hhefesto/docxty";
     wedding-page.url = "github:hhefesto/wedding-website";
     directo.url = "git+ssh://git@github.com/hhefesto/directo";
@@ -338,6 +341,25 @@
             enableACME = true;
             forceSSL = true;
             root = "${inputs.directo-devops-site.packages.x86_64-linux.www}";
+            extraConfig = ''
+              etag off;
+              if_modified_since off;
+              add_header X-Content-Type-Options nosniff always;
+            '';
+            locations."/".extraConfig = "expires 5m;";
+            locations."= /".extraConfig = "expires -1;";
+            locations."= /index.html".extraConfig = "expires -1;";
+          };
+
+          # xpsoasis's infrastructure deck (xpsoasis-devops.hhefesto.dev,
+          # hhefesto/xpsoasis-devops-site): oasis-infra's phase 3 (the user,
+          # 11-27: "also publish the xpsoasis deck"). Same rules as directo's
+          # deck. Its DNS record (A, proxied) was made before this, by
+          # OpenTofu (directo's infra/tf/xty.nix).
+          services.nginx.virtualHosts."xpsoasis-devops.hhefesto.dev" = {
+            enableACME = true;
+            forceSSL = true;
+            root = "${inputs.xpsoasis-devops-site.packages.x86_64-linux.www}";
             extraConfig = ''
               etag off;
               if_modified_since off;
