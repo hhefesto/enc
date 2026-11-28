@@ -231,6 +231,22 @@ in
 
   virtualisation.libvirtd.enable = true;
 
+  # USB drives: copies that show their real speed (olimpo and delfos). A
+  # copy to a USB stick counts a byte as copied once it is in RAM, and the
+  # kernel lets each drive hold a share of RAM of it unwritten (~2.7 GB on
+  # olimpo's 31 GB): the progress bar raced to 99% and then sat there while
+  # that backlog went to a ~12 MB/s stick (the user, 11-27: "Why when I move
+  # files to a usb it stays at 99% for a very long time?"; "The usb fix
+  # should be for olimpo and delfos"). For USB disks only, this caps it at
+  # 64 MiB: the bar follows the stick's real speed, ejecting takes seconds,
+  # and a stick pulled without ejecting loses at most that much. Internal
+  # disks keep the default. strict_limit makes the cap hold even while the
+  # system as a whole is below its own dirty limits. Check with a stick in:
+  # cat /sys/block/sdX/bdi/max_bytes (67108864).
+  services.udev.extraRules = ''
+    ACTION=="add|change", SUBSYSTEM=="block", ENV{DEVTYPE}=="disk", ENV{ID_BUS}=="usb", ATTR{bdi/strict_limit}="1", ATTR{bdi/max_bytes}="67108864"
+  '';
+
   # 587 submission, 5938 teamviewer, 53317 localsend.
   # Dev backends (3000/…) and postgres (5432) stay localhost-only.
   networking.firewall.allowedTCPPorts = [ 587 5938 53317 ];
